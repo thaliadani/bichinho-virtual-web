@@ -429,13 +429,9 @@ header h1{
 
 /* Posicionamento dos acessórios */
 .coroa-equipado,.chapeu-cartola-equipado, .chapeu-laco-equipado{
-    top: 54px;
-}
-
-.oculos-equipado {
-    top: 100px;
+    top: 58px;
 }
 
 .laco-equipado {
-    top: 60px;
+    top: 70px;
 }

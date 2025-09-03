@@ -38,7 +38,8 @@ const emojisBichinhos = {
     'panda': '🐼',
     'vaca': '🐮',
     'sapo': '🐸',
-    'tubarao': '🦈',
+    'hamster': '🐹',
+    'porco': '🐷'
 };
 
 // Objeto que armazena o estado do bichinho
