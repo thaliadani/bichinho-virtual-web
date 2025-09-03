@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Tamagotchi Virtual</title>
+    <link rel="stylesheet" href="./assets/styles/main.css">
+</head>
+
+<body>
+    <header>
+        <h1>Meu Bichinho Virtual</h1>
+    </header>
+    
+    <main class="container-principal">
+
+        <section class="jogo-container">
+            <div class="conteudo-jogo">
+                <div id="boasVindas" class="tela-inicial">
+                    <h2>Bem-vindo(a) ao seu novo bichinho!</h2>
+                    <p>Escolha seu bichinho virtual:</p>
+
+                    <div class="selecao-bichinhos">
+                        <div class="opcao-bichinho" data-tipo="cachorro">
+                            <div class="emoji-bichinho">🐶</div>
+                            <span>Cachorro</span>
+                        </div>
+                        <div class="opcao-bichinho" data-tipo="gato">
+                            <div class="emoji-bichinho">🐱</div>
+                            <span>Gato</span>
+                        </div>
+                        <div class="opcao-bichinho" data-tipo="coelho">
+                            <div class="emoji-bichinho">🐰</div>
+                            <span>Coelho</span>
+                        </div>
+                        <div class="opcao-bichinho" data-tipo="panda">
+                            <div class="emoji-bichinho">🐼</div>
+                            <span>Panda</span>
+                        </div>
+                        <div class="opcao-bichinho" data-tipo="vaca">
+                            <div class="emoji-bichinho">🐮</div>
+                            <span>Vaca</span>
+                        </div>
+                        <div class="opcao-bichinho" data-tipo="sapo">
+                            <div class="emoji-bichinho">🐸</div>
+                            <span>Sapo</span>
+                        </div>
+                        <div class="opcao-bichinho" data-tipo="tubarao">
+                            <div class="emoji-bichinho">🦈</div>
+                            <span>Tubarão</span>
+                        </div>
+                        <div class="opcao-bichinho" data-tipo="tubarao">
+                            <div class="emoji-bichinho"></div>
+                            <span>Tubarão</span>
+                        </div>
+                    </div>
+
+                    <p>Qual nome você quer dar a ele?</p>
+                    <input type="text" id="inputNome" placeholder="Digite o nome aqui">
+                    <button id="botaoComecar" class="botao-acao">Começar</button>
+                </div>
+
+                <div id="containerJogo" style="display: none">
+                    <h2 id="nomeBichinho"></h2>
+
+                    <div class="nivel-container">
+                        <span>Nível <span id="nivelBichinho">1</span></span>
+                        <div class="experiencia-bar">
+                            <div class="experiencia-progresso"></div>
+                        </div>
+                    </div>
+
+                    <div class="tamagotchi-container">
+                        <div class="tamagotchi-bichinho">
+                            <div id="emojiBichinho" class="emoji-bichinho-grande"></div>
+                            <div id="acessoriosBichinho" class="acessorios-bichinho"></div>
+                        </div>
+                    </div>
+
+                    <div class="status-container">
+                        <div class="status-item">
+                            <span class="status-label">Fome:</span>
+                            <div class="status-barra">
+                                <div class="status-progresso fome"></div>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Felicidade:</span>
+                            <div class="status-barra">
+                                <div class="status-progresso felicidade"></div>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Higiene:</span>
+                            <div class="status-barra">
+                                <div class="status-progresso higiene"></div>
+                            </div>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Saúde:</span>
+                            <div class="status-barra">
+                                <div class="status-progresso saude"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="botoes-container">
+                        <button id="botaoAlimentar" class="botao-acao">🍕</button>
+                        <button id="botaoBrincar" class="botao-acao">⚽</button>
+                        <button id="botaoLimpar" class="botao-acao">🧼</button>
+                        <button id="botaoSaude" class="botao-acao">💊</button>
+                    </div>
+
+                    <button id="botaoReiniciar" class="botao-acao" style="display: none;">Reiniciar Jogo</button>
+
+                    <p id="mensagem" class="mensagem"></p>
+
+                    <nav class="menu-lateral direita">
+                        <button id="botaoLoja" class="botao-menu" title="Loja">🛒</button>
+                        <button id="botaoTreinamento" class="botao-menu" title="Treinamento">💪</button>
+                        <button id="botaoBatalha" class="botao-menu" title="Batalha">⚔️</button>
+                    </nav>
+                </div>
+
+                <div id="containerLoja" class="loja-container" style="display: none;">
+                    <div class="loja-header">
+                        <h2>Loja de Acessórios</h2>
+                        <button id="botaoSairLoja" class="botao-sair">X</button>
+                    </div>
+                    <div class="acessorios-container">
+                        
+                        <div class="acessorio-item" data-acessorio="coroa">
+                            <div class="acessorio-emoji">👑</div>
+                            <span>Coroa Real</span>
+                            <button class="botao-comprar" data-acessorio="coroa">Equipar/Desequipar</button>
+                        </div>
+                        <div class="acessorio-item" data-acessorio="chapeu-laco">
+                            <div class="acessorio-emoji">👒</div>
+                            <span>Chapéu com Laço</span>
+                            <button class="botao-comprar" data-acessorio="chapeu-laco">Equipar/Desequipar</button>
+                        </div>
+
+                        <div class="acessorio-item" data-acessorio="chapeu-cartola">
+                            <div class="acessorio-emoji">🎩</div>
+                            <span>Chapéu Cartola</span>
+                            <button class="botao-comprar" data-acessorio="chapeu-cartola">Equipar/Desequipar</button>
+                        </div>
+
+                        <div class="acessorio-item" data-acessorio="laco">
+                            <div class="acessorio-emoji">🎀</div>
+                            <span>Laço de Princesa</span>
+                            <button class="botao-comprar" data-acessorio="laco">Equipar/Desequipar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="./assets/src/main.js"></script>
+</body>
+
+</html>
