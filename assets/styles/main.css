@@ -180,10 +180,6 @@ body {
     background-color: #f44336 !important;
 }
 
-.tamagotchi-bichinho.morto {
-    background-color: #9e9e9e !important;
-}
-
 .botao-acao:disabled {
     opacity: 0.5;
     cursor: not-allowed;

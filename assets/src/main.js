@@ -218,6 +218,7 @@ function passarTempo() {
     if (meuBichinho.saude <= 0) {
         mensagemElemento.textContent = `Oh não! ${meuBichinho.nome} morreu.`;
         tamagotchiBichinho.style.backgroundColor = '#9e9e9e'; // Cinza quando morto
+        emojiBichinhoElemento.style.filter = 'grayscale(80%)';
         tamagotchiBichinho.classList.remove('triste');
 
         // Esconde os botões de ação e mostra o de reiniciar
