@@ -8,3 +8,30 @@
     cursor: default;
 }
 
+:root{
+    --cor-texto: #333;
+    --cor-texto-botao: #fff;
+
+    --cor-mensagem: #b40000;
+
+    --cor-de-fundo: #fff;
+    --cor-de-fundo-menu: #f8f8f8;
+    
+    --cor-botao:#8ece90;
+    --cor-botao-hover:#86f0a6;
+
+    --cor-botao-sair: #f44336;
+    --cor-botao-sair-hover: #d32f2f;
+
+    --cor-fundo-bichinho-selecionado:#e8f5e9;
+    --cor-borda-bichinho-selecionado:#4caf50;
+
+    --cor-fundo-container-bichinho:#4caf50;
+    --cor-bichinho-hover: #d8fa5d;
+
+    --borda: 2px solid #e0e0e0;
+
+    --linha:2px solid #4caf50;
+
+    --sombra: 0 4px 20px rgba(0, 0, 0, 0.1);
+}

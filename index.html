@@ -11,11 +11,22 @@
 
 <body>
 
-    <main class="container-principal">
+    <header>
         <h1>Meu Bichinho Virtual</h1>
+    </header>
+
+    <main class="container-principal">
+        <button type="button" id="botao-temas"></button>
+
+        <div class="texto-acessibilidade">
+            <button id="diminuir-textos" type="button">⬇️</button>   
+            <button id="aumentar-textos" type="button">⬆️</button>
+              
+        </div>
+
         <section class="jogo-container">
             <div class="conteudo-jogo">
-                <div id="boasVindas" class="tela-inicial">
+                <div id="boas-vindas" class="tela-inicial">
                     <h2>Boas Vindas ao Bichinho Virtual!</h2>
                     <p>Escolha um dos bichinhos abaixo:</p>
 
@@ -59,16 +70,18 @@
 
                     <p>Qual nome você quer dar ao seu bichinho?</p>
 
-                    <input type="text" id="inputNome" placeholder="Digite o nome aqui">
+                    <input type="text" id="input-nome" placeholder="Digite o nome aqui">
 
-                    <button id="botaoComecar" class="botao-acao">Começar</button>
+                    <button id="botao-comecar" class="botao-acao">Começar</button>
+
+                    <p id="mensagem-tela-inicial" class="mensagem"></p>
                 </div>
 
                 <div id="containerJogo" style="display: none">
-                    <h2 id="nomeBichinho"></h2>
+                    <h2 id="nome-bichinho"></h2>
 
                     <div class="nivel-container">
-                        <span>Nível <span id="nivelBichinho">1</span></span>
+                        <span>Nível <span id="nivel-bichinho">1</span></span>
                         <div class="experiencia-bar">
                             <div class="experiencia-progresso"></div>
                         </div>
@@ -76,8 +89,8 @@
 
                     <div class="tamagotchi-container">
                         <div class="tamagotchi-bichinho">
-                            <div id="emojiBichinho" class="emoji-bichinho-grande"></div>
-                            <div id="acessoriosBichinho" class="acessorios-bichinho"></div>
+                            <div id="emoji-bichinho" class="emoji-bichinho-grande"></div>
+                            <div id="acessorios-bichinho" class="acessorios-bichinho"></div>
                         </div>
                     </div>
 
@@ -109,27 +122,26 @@
                     </div>
 
                     <div class="botoes-container">
-                        <button id="botaoAlimentar" class="botao-acao">🍕</button>
-                        <button id="botaoBrincar" class="botao-acao">⚽</button>
-                        <button id="botaoLimpar" class="botao-acao">🧼</button>
-                        <button id="botaoSaude" class="botao-acao">💊</button>
+                        <button id="botao-alimentar" class="botao-acao">🍕</button>
+                        <button id="botao-brincar" class="botao-acao">⚽</button>
+                        <button id="botao-limpar" class="botao-acao">🧼</button>
+                        <button id="botao-medicar" class="botao-acao">💊</button>
                     </div>
 
                     <button id="botaoReiniciar" class="botao-acao" style="display: none;">Reiniciar Jogo</button>
 
                     <p id="mensagem" class="mensagem"></p>
 
-                    <nav class="menu-lateral direita">
-                        <button id="botaoLoja" class="botao-menu" title="Loja">🛒</button>
-                        <button id="botaoTreinamento" class="botao-menu" title="Treinamento">💪</button>
-                        <button id="botaoBatalha" class="botao-menu" title="Batalha">⚔️</button>
+                    <nav class="menu-lateral">
+                        <button id="botao-loja" class="botao-menu" title="Loja">🛒</button>
+                        <button id="botao-mini-games" class="botao-menu" title="MiniGames">🕹️</button>
                     </nav>
                 </div>
 
                 <div id="containerLoja" class="loja-container" style="display: none;">
                     <div class="loja-header">
                         <h2>Loja de Acessórios</h2>
-                        <button id="botaoSairLoja" class="botao-sair">X</button>
+                        <button id="botao-sair-loja" class="botao-sair">X</button>
                     </div>
                     <div class="acessorios-container">
 
