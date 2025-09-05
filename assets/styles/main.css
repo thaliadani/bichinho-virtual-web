@@ -426,11 +426,11 @@ body {
 .coroa-equipado,
 .chapeu-cartola-equipado,
 .chapeu-laco-equipado {
-  top: 35px;
+  top: 25%;
 }
 
 .laco-equipado {
-  top: 45px;
+  top: 30%;
 }
 
 .mensagem {
@@ -483,15 +483,5 @@ body {
     right: 0;
     top: 0;
     transform: translateY(0);
-  }
-
-  .coroa-equipado,
-  .chapeu-cartola-equipado,
-  .chapeu-laco-equipado {
-    top: 45px;
-  }
-
-  .laco-equipado {
-    top: 55px;
   }
 }
