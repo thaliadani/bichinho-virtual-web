@@ -291,7 +291,7 @@ body {
   justify-content: space-around;
   gap: 15px;
   padding: 10px;
-  background-color: var(--cor-fundo);
+  background-color: var(--cor-principal);
   border-radius: 15px;
   box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
