@@ -435,7 +435,7 @@ body {
 
 .mensagem {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;
@@ -444,7 +444,7 @@ body {
   color: var(--cor-texto);
   font-size: 1.2em;
   text-align: center;
-  width: 80%;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
