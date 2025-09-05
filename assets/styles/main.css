@@ -14,7 +14,7 @@ header{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top : 4rem;
+  padding : 2rem 0;
   width: 100%;
 }
 
@@ -24,12 +24,14 @@ header{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 400px;
+  min-width: 300px;
+  max-width: 500px;
   background-color: var(--cor-de-fundo);
   border-radius: 30px;
   box-shadow: var(--sombra-container);
   padding: 2rem;
   gap: 1rem;
+  border: 5px solid var(--cor-de-fundo-menu);
 }
 
 .container-principal h1,
@@ -44,33 +46,15 @@ header{
 }
 
 .container-principal h2 {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
-.container-principal p {
-  font-size: 0.8rem;
+.container-principal p, .container-principal span{
+  font-size: 1.2rem;
 }
 
 .container-principal span {
   font-weight: bold;
-}
-
-.texto-acessibilidade{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 50px;
-  right: -70px;
-}
-
-.texto-acessibilidade button{
-  border: none;
-  background: none;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
 }
 
 .jogo-container,
@@ -81,7 +65,9 @@ header{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+}
+
+.tela-inicial{
   gap: 1rem;
 }
 
@@ -93,6 +79,10 @@ header{
   flex: 1;
 }
 
+#container-jogo {
+  gap: 1rem;
+}
+
 .selecao-bichinhos {
   display: flex;
   flex-wrap: wrap;
@@ -100,7 +90,6 @@ header{
   align-items: center;
   gap: 0.8rem;
   margin-bottom: 1rem;
-  width: 100%;
 }
 
 .opcao-bichinho {
@@ -112,6 +101,7 @@ header{
   border-radius: 10px;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  width: 100px;
 }
 
 .opcao-bichinho:hover {
@@ -134,13 +124,12 @@ header{
   font-size: 6rem;
 }
 
-#inputNome {
-  padding: 10px;
+#input-nome {
+  padding: 12px;
   border: var(--borda);
-  border-radius: 5px;
-  font-size: 16px;
-  width: 80%;
-  max-width: 250px;
+  border-radius: 20px;
+  font-size: 1rem;
+  max-width: 450px;
   margin-bottom: 10px;
   cursor: text;
 }
@@ -215,6 +204,7 @@ header{
   align-items: center;
   justify-content: center;
   width: 100%;
+  gap: .5rem;
 }
 
 .status-item {
@@ -226,11 +216,7 @@ header{
 }
 
 .status-label {
-  width: 90px;
-  text-align: left;
-  color: var(--cor-texto);
-  font-weight: bold;
-  font-size: 1rem;
+  width: 110px;
 }
 
 .status-barra {
@@ -422,11 +408,11 @@ header{
 .coroa-equipado,
 .chapeu-cartola-equipado,
 .chapeu-laco-equipado {
-  top: 58px;
+  top: 30px;
 }
 
 .laco-equipado {
-  top: 70px;
+  top: 40px;
 }
 
 @media screen and (max-width: 768px) {
@@ -464,16 +450,5 @@ header{
     right: 0;
     top: 0;
     transform: translateY(0);
-  }
-
-  /* Posicionamento dos acessórios */
-  .coroa-equipado,
-  .chapeu-cartola-equipado,
-  .chapeu-laco-equipado {
-    top: 50px;
-  }
-
-  .laco-equipado {
-    top: 60px;
   }
 }

@@ -121,11 +121,11 @@ function atualizarUI() {
   }
 
   // Controla o estado dos botões com base nos status
-  document.getElementById("botaoAlimentar").disabled = meuBichinho.fome >= 100;
-  document.getElementById("botaoBrincar").disabled =
+  document.getElementById("botao-alimentar").disabled = meuBichinho.fome >= 100;
+  document.getElementById("botao-brincar").disabled =
     meuBichinho.felicidade >= 100;
-  document.getElementById("botaoLimpar").disabled = meuBichinho.higiene >= 100;
-  document.getElementById("botaoSaude").disabled = meuBichinho.saude >= 100;
+  document.getElementById("botao-limpar").disabled = meuBichinho.higiene >= 100;
+  document.getElementById("botao-medicar").disabled = meuBichinho.saude >= 100;
 
   // Atualiza o nome do bichinho na interface
   nomeBichinhoElemento.textContent = meuBichinho.nome;
@@ -280,42 +280,6 @@ function alterarTema(){
 
 }
 
-// Aumentar e dimuir os textos
-
-function aumentarTexto(){
-    const todosOsElementos = document.body.querySelectorAll('*');
-
-    todosOsElementos.forEach(elemento =>{
-        const estilo= window.getComputedStyle(elemento, null).getPropertyValue('font-size');
-
-        let tamanhoAtual = parseFloat(estilo);
-
-        if(tamanhoAtual > 0){
-            elemento.style.fontSize= (tamanhoAtual + 20) + 'px';
-        }
-    });
-
-    salvarDados();
-    atualizarUI();
-}
-
-function diminuirTexto(){
-    const todosOsElementos = document.body.querySelectorAll('*');
-
-    todosOsElementos.forEach(elemento =>{
-        const estilo= window.getComputedStyle(elemento, null).getPropertyValue('font-size');
-
-        let tamanhoAtual = parseFloat(estilo);
-
-        if(tamanhoAtual > 0){
-            elemento.style.fontSize= (tamanhoAtual --) + 'px';
-        }
-    });
-
-    salvarDados();
-    atualizarUI();
-}
-
 // --- Novas funções para a loja de acessórios ---
 
 function abrirLoja() {
@@ -332,7 +296,6 @@ function equiparOuDesequiparAcessorio(tipoAcessorio) {
   if (meuBichinho.acessorios[tipoAcessorio]) {
     // Desequipa este acessório
     meuBichinho.acessorios[tipoAcessorio] = false;
-    mensagemElemento.textContent = `Acessório removido!`;
   } else {
     // Desequipa todos os outros acessórios primeiro
     for (const acessorio in meuBichinho.acessorios) {
@@ -340,7 +303,6 @@ function equiparOuDesequiparAcessorio(tipoAcessorio) {
     }
     // Equipa o novo acessório
     meuBichinho.acessorios[tipoAcessorio] = true;
-    mensagemElemento.textContent = `Acessório equipado!`;
   }
 
   // Atualiza a visualização
@@ -349,13 +311,10 @@ function equiparOuDesequiparAcessorio(tipoAcessorio) {
   // Salva os dados
   salvarDados();
 
-  setTimeout(() => {
-    mensagemElemento.textContent = "";
-  }, 2000);
 }
 
 function atualizarAcessorios() {
-  const containerAcessorios = document.getElementById("acessoriosBichinho");
+  const containerAcessorios = document.getElementById("acessorios-bichinho");
 
   // Limpa acessórios atuais
   containerAcessorios.innerHTML = "";
@@ -437,10 +396,6 @@ botaoComecar.addEventListener("click", () => {
   }
 });
 
-// Evento de acessibilidade de aumentar e diminuir textos
-botaoAumentarTexto.addEventListener("click", aumentarTexto());
-botaoDiminuirTexto.addEventListener("click", diminuirTexto());
-
 // Modifique os eventos dos botões para verificar se estão desabilitados
 botaoAlimentar.addEventListener("click", () => {
   if (meuBichinho.fome >= 100) return; // Não faz nada se a barra estiver cheia
@@ -490,6 +445,7 @@ botaoSairLoja.addEventListener("click", fecharLoja);
 
 // Evento de abrir mini games
 botaoMiniGames.addEventListener("click", abrirMiniGames);
+// Evento de fechar mini games
 botaoSairMiniGames.addEventListener("click", fecharMiniGames);
 
 // Adiciona event listeners para os botões de comprar/equipar acessórios
@@ -507,7 +463,7 @@ document.addEventListener("DOMContentLoaded", function () {
 window.addEventListener("load", function () {
   const tamagotchiContainer = document.querySelector(".tamagotchi-container");
   const acessoriosContainer = document.createElement("div");
-  acessoriosContainer.id = "acessoriosBichinho";
+  acessoriosContainer.id = "acessorios-bichinho";
   acessoriosContainer.className = "acessorios-bichinho";
   tamagotchiContainer.appendChild(acessoriosContainer);
 
