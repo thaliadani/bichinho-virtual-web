@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,30 +8,38 @@
     cursor: default;
 }
 
-:root{
-    --cor-texto: #333;
-    --cor-texto-botao: #fff;
+:root {
+    --cor-fundo: #f0f0f0;
+    --cor-principal: #ffffff;
+    --cor-texto: #333333;
+    --cor-borda: #cccccc;
 
-    --cor-mensagem: #b40000;
+    --cor-bichinho-hover: #bb5bd3;
+    --cor-fundo-bichinho-selecionado: #bb5bd33f;
+    --cor-borda-bichinho-selecionado: #bb5bd3;
 
-    --cor-de-fundo: #fff;
-    --cor-de-fundo-menu: #f8f8f8;
-    
-    --cor-botao:#8ece90;
-    --cor-botao-hover:#86f0a6;
+    --cor-botoes: #bb5bd3;
+    --cor-botoes-hover: #d979f1;
 
-    --cor-botao-sair: #f44336;
-    --cor-botao-sair-hover: #d32f2f;
+    --linha: 2px solid #bb5bd3;
 
-    --cor-fundo-bichinho-selecionado:#e8f5e9;
-    --cor-borda-bichinho-selecionado:#4caf50;
+    --cor-botao-sair: #b60c00;
+    --cor-botao-sair-hover: #bd18188c;
+}
 
-    --cor-fundo-container-bichinho:#4caf50;
-    --cor-bichinho-hover: #d8fa5d;
+.dark-mode {
+    --cor-fundo: #1a1a1a;
+    --cor-principal: #2c2c2c;
+    --cor-texto: #f0f0f0;
+    --cor-borda: #444444;
 
-    --borda: 2px solid #e0e0e0;
+    --cor-bichinho-hover: #8513a1;
 
-    --linha:2px solid #4caf50;
+    --cor-fundo-bichinho-selecionado: #8513a12c;
+    --cor-borda-bichinho-selecionado: #8513a1;
 
-    --sombra: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --cor-botoes: #8513a1;
+    --cor-botoes-hover: #600c75;
+
+    --linha: 2px solid #8513a1;
 }

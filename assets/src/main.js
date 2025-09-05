@@ -23,15 +23,12 @@ const botaoBrincar = document.getElementById("botao-brincar");
 const botaoLimpar = document.getElementById("botao-limpar");
 const botaoMedicar = document.getElementById("botao-medicar");
 
-const botaoTemas = document.getElementById("botao-temas");
-
 const botaoAumentarTexto = document.getElementById("aumentar-textos");
 const botaoDiminuirTexto = document.getElementById("diminuir-textos");
 
 const botaoComecar = document.getElementById("botao-comecar");
 const botaoReiniciar = document.getElementById("botao-reiniciar");
 
-const mensagemTelaInicial = document.getElementById("mensagem-tela-inicial");
 const mensagemElemento = document.getElementById("mensagem");
 
 const containerLoja = document.getElementById("container-loja");
@@ -231,7 +228,7 @@ function passarTempo() {
   if (meuBichinho.saude <= 0) {
     mensagemElemento.textContent = `Oh não! ${meuBichinho.nome} morreu.`;
     tamagotchiBichinho.style.backgroundColor = "#9e9e9e"; // Cinza quando morto
-    emojiBichinhoElemento.style.filter = "grayscale(80%)";
+    tamagotchiBichinho.style.filter = "grayscale(80%)";
     tamagotchiBichinho.classList.remove("triste");
 
     // Esconde os botões de ação e mostra o de reiniciar
@@ -276,9 +273,42 @@ function controlarVisibilidadeBotoes(visivel) {
 }
 
 // Alterar o tema da pagina
-function alterarTema(){
 
+// Seleciona o botão de tema
+const botaoTema = document.getElementById('botao-tema');
+
+// Seleciona o body para aplicar a classe
+const corpoDocumento = document.body;
+
+// Função para aplicar o tema salvo no localStorage
+function aplicarTemaSalvo() {
+  const temaSalvo = localStorage.getItem('tema');
+  if (temaSalvo === 'escuro') {
+    corpoDocumento.classList.add('dark-mode');
+    botaoTema.textContent = '☀️';
+  } else {
+    corpoDocumento.classList.remove('dark-mode');
+    botaoTema.textContent = '🌑';
+  }
 }
+
+// Chama a função para aplicar o tema assim que a página carregar
+document.addEventListener('DOMContentLoaded', aplicarTemaSalvo);
+
+// Adiciona um evento de clique ao botão de tema
+botaoTema.addEventListener('click', () => {
+  // Alterna a classe 'dark-mode' no corpo do documento
+  corpoDocumento.classList.toggle('dark-mode');
+
+  // Salva a preferência do usuário no localStorage
+  if (corpoDocumento.classList.contains('dark-mode')) {
+    localStorage.setItem('tema', 'escuro');
+    botaoTema.textContent = '☀️';
+  } else {
+    localStorage.setItem('tema', 'claro');
+    botaoTema.textContent = '🌑';
+  }
+});
 
 // --- Novas funções para a loja de acessórios ---
 
@@ -288,7 +318,6 @@ function abrirLoja() {
 
 function fecharLoja() {
   containerLoja.style.display = "none";
-  containerJogo.style.display = "flex";
 }
 
 function equiparOuDesequiparAcessorio(tipoAcessorio) {
@@ -360,12 +389,11 @@ function atualizarAcessorios() {
 
 // --- Novas funções para os mini games ---
 function abrirMiniGames() {
-  containerLoja.style.display = "flex";
+  containerMiniGames.style.display = "flex";
 }
 
 function fecharMiniGames() {
-  containerLoja.style.display = "none";
-  containerJogo.style.display = "flex";
+  containerMiniGames.style.display = "none";
 }
 
 // Eventos para seleção de bichinhos
@@ -382,17 +410,14 @@ opcoesBichinhos.forEach((opcao) => {
   });
 });
 
-//Evento alterar tema
-botaoTemas.addEventListener("click", alterarTema());
-
 // Evento para o novo botão "Começar"
 botaoComecar.addEventListener("click", () => {
   // Se o usuário digitou algo, inicia o jogo
   if (inputNome.value.trim() !== "") {
     iniciarJogo();
   } else {
-    mensagemTelaInicial.textContent =
-      "Por favor, digite um nome para o seu bichinho!";
+    inputNome.focus();
+    inputNome.classList.add("input-erro");
   }
 });
 

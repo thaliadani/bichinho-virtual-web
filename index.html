@@ -11,12 +11,10 @@
 
 <body>
 
-    <header>
-        <h1>Meu Bichinho Virtual</h1>
-    </header>
-
     <main class="container-principal">
-        <button type="button" id="botao-temas"></button>
+        <div class="container-tema">
+            <button type="button" id="botao-tema"></button>
+        </div>
 
         <section class="jogo-container">
             <div class="conteudo-jogo">
@@ -64,11 +62,10 @@
 
                     <p>Qual nome você quer dar ao seu bichinho?</p>
 
-                    <input type="text" id="input-nome" placeholder="Digite o nome aqui">
+                    <input type="text" id="input-nome" placeholder="Digite o nome aqui" maxlength="10">
 
                     <button id="botao-comecar" class="botao-acao">Começar</button>
 
-                    <p id="mensagem-tela-inicial" class="mensagem"></p>
                 </div>
 
                 <div id="container-jogo" style="display: none">
@@ -169,7 +166,7 @@
                         <h2>Mini Games</h2>
                         <button id="botao-sair-mini-games" class="botao-sair">X</button>
                     </div>
-                    <div class="mini-games-container">
+                    <div class="games-container">
 
 
                     </div>

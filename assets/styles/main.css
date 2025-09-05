@@ -5,17 +5,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-header{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding : 2rem 0;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container-principal {
@@ -26,19 +20,13 @@ header{
   justify-content: center;
   min-width: 300px;
   max-width: 500px;
-  background-color: var(--cor-de-fundo);
   border-radius: 30px;
-  box-shadow: var(--sombra-container);
   padding: 2rem;
   gap: 1rem;
-  border: 5px solid var(--cor-de-fundo-menu);
-}
-
-.container-principal h1,
-.container-principal h2,
-.container-principal p,
-.container-principal span {
-  color: var(--cor-texto);
+  background-color: var(--cor-principal);
+  border: 2px solid var(--cor-borda);
+  box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .container-principal h1 {
@@ -49,12 +37,28 @@ header{
   font-size: 1.5rem;
 }
 
-.container-principal p, .container-principal span{
+.container-principal p,
+.container-principal span {
   font-size: 1.2rem;
 }
 
 .container-principal span {
   font-weight: bold;
+}
+
+.container-tema {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+#botao-tema {
+  cursor: pointer;
 }
 
 .jogo-container,
@@ -67,7 +71,7 @@ header{
   justify-content: center;
 }
 
-.tela-inicial{
+.tela-inicial {
   gap: 1rem;
 }
 
@@ -81,6 +85,17 @@ header{
 
 #container-jogo {
   gap: 1rem;
+}
+
+#botao-tema {
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  background: none;
 }
 
 .selecao-bichinhos {
@@ -101,7 +116,7 @@ header{
   border-radius: 10px;
   transition: all 0.3s ease;
   border: 2px solid transparent;
-  width: 100px;
+  width: 120px;
 }
 
 .opcao-bichinho:hover {
@@ -126,16 +141,21 @@ header{
 
 #input-nome {
   padding: 12px;
-  border: var(--borda);
+  border: 1px solid var(--cor-borda);
   border-radius: 20px;
   font-size: 1rem;
-  max-width: 450px;
+  width: 80%;
   margin-bottom: 10px;
   cursor: text;
 }
 
+.input-erro::placeholder {
+  color: #bb0707;
+  font-weight: 600;
+}
+
 .botao-acao {
-  background-color: var(--cor-botao);
+  background-color: var(--cor-botoes);
   color: var(--cor-texto);
   border: none;
   border-radius: 20px;
@@ -145,12 +165,16 @@ header{
   flex-grow: 1;
   margin: 0 5px;
   transition: background-color 0.3s ease;
-  box-shadow: inset var(--sombra-container);
+  box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
   cursor: pointer;
 }
 
 .botao-acao:hover {
-  background-color: var(--cor-botao-hover);
+  background-color: var(--cor-botoes-hover);
+}
+
+.botao-acao:active {
+  box-shadow: inset 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
 
 .botao-acao:disabled {
@@ -164,7 +188,7 @@ header{
 
 .experiencia-bar {
   width: 200px;
-  background-color: var(--cor-de-fundo-menu);
+  background-color: var(--cor-fundo);
   border-radius: 8px;
   overflow: hidden;
   height: 10px;
@@ -173,7 +197,7 @@ header{
 .experiencia-progresso {
   height: 100%;
   width: 0%;
-  background-color: #9c27b0;
+  background-color: #bb5bd3;
   transition: width 0.5s ease-in-out;
 }
 
@@ -191,7 +215,6 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--cor-fundo-container-bichinho);
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -221,7 +244,7 @@ header{
 
 .status-barra {
   width: 200px;
-  background-color: var(--cor-de-fundo-menu);
+  background-color: var(--cor-fundo);
   border-radius: 8px;
   overflow: hidden;
   height: 15px;
@@ -257,13 +280,6 @@ header{
   align-items: center;
 }
 
-.mensagem {
-  font-weight: bold;
-  color: var(--cor-mensagem);
-  margin-top: 20px;
-  font-size: 1.2em;
-}
-
 .menu-lateral {
   position: absolute;
   right: -70px;
@@ -275,35 +291,35 @@ header{
   justify-content: space-around;
   gap: 15px;
   padding: 10px;
-  background-color: var(--cor-de-fundo-menu);
+  background-color: var(--cor-fundo);
   border-radius: 15px;
-  box-shadow: var(--sombra-container);
+  box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
 
 .botao-menu {
   background-color: var(--cor-de-fundo-menu);
-  border: none;
+  border: 2px solid var(--cor-borda);
   border-radius: 50%;
   width: 50px;
   height: 50px;
   font-size: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: var(--sombra-container);
 }
 
 .botao-menu:hover {
-  background-color: var(--cor-botao-hover);
+  background-color: var(--cor-botoes-hover);
   transform: scale(1.05);
 }
 
-.loja-container {
+.loja-container,
+.mini-games-container {
   position: absolute;
   top: 0;
   left: 450px;
   width: 100%;
   height: 100%;
-  background-color: var(--cor-de-fundo);
+  background-color: var(--cor-principal);
   z-index: 100;
   padding: 20px;
   border-radius: 30px;
@@ -320,14 +336,14 @@ header{
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 20px;
   border-bottom: var(--linha);
-  padding-bottom: 10px;
+  padding-bottom: 14px;
 }
 
 .botao-sair {
   background-color: var(--cor-botao-sair);
-  color: var(--cor-texto-botao);
+  color: var(--cor-texto);
+  font-size: 1rem;
   border: none;
   border-radius: 50%;
   width: 30px;
@@ -354,23 +370,25 @@ header{
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-  border: var(--borda);
+  border: 2px solid var(--cor-borda);
   border-radius: 15px;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .acessorio-item:hover {
-  border-color: var(--cor-botao-hover);
   transform: translateY(-5px);
-  box-shadow: var(--sombra);
+  box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
 
 .acessorio-emoji {
   margin-bottom: 10px;
+  font-size: 2.4rem;
 }
 
 .acessorio-item span {
   margin-bottom: 10px;
+  font-size: 1rem;
 }
 
 .botao-comprar {
@@ -408,11 +426,25 @@ header{
 .coroa-equipado,
 .chapeu-cartola-equipado,
 .chapeu-laco-equipado {
-  top: 30px;
+  top: 35px;
 }
 
 .laco-equipado {
-  top: 40px;
+  top: 45px;
+}
+
+.mensagem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: var(--cor-texto);
+  font-size: 1.2em;
+  text-align: center;
+  width: 80%;
 }
 
 @media screen and (max-width: 768px) {
@@ -422,9 +454,6 @@ header{
     border-radius: 0;
     box-shadow: none;
     padding: 0.8rem;
-  }
-  header {
-    display: none;
   }
 
   .tela-inicial {
@@ -450,5 +479,15 @@ header{
     right: 0;
     top: 0;
     transform: translateY(0);
+  }
+
+  .coroa-equipado,
+  .chapeu-cartola-equipado,
+  .chapeu-laco-equipado {
+    top: 35px;
+  }
+
+  .laco-equipado {
+    top: 45px;
   }
 }
