@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -8,21 +7,22 @@
     <title>Meu Bichinho Virtual</title>
     <link rel="stylesheet" href="./assets/styles/main.css">
 </head>
-
 <body>
-
     <main class="container-principal">
+        <!-- Botão para alternar entre temas claro/escuro -->
         <div class="container-tema">
-            <button type="button" id="botao-tema"></button>
+            <button type="button" id="botao-tema" aria-label="Alternar tema claro/escuro"></button>
         </div>
 
         <section class="jogo-container">
             <div class="conteudo-jogo">
+                <!-- Tela inicial de boas-vindas -->
                 <div id="boas-vindas" class="tela-inicial">
                     <h2>Boas Vindas ao Bichinho Virtual!</h2>
                     <p>Escolha um dos bichinhos abaixo:</p>
 
                     <div class="selecao-bichinhos">
+                        <!-- Opções de bichinhos disponíveis -->
                         <div class="opcao-bichinho" data-tipo="cachorro">
                             <div class="emoji-bichinho">🐶</div>
                             <span>Cachorro</span>
@@ -47,27 +47,22 @@
                             <div class="emoji-bichinho">🐸</div>
                             <span>Sapo</span>
                         </div>
-
                         <div class="opcao-bichinho" data-tipo="hamster">
                             <div class="emoji-bichinho">🐹</div>
                             <span>Hamster</span>
                         </div>
-
                         <div class="opcao-bichinho" data-tipo="porco">
                             <div class="emoji-bichinho">🐷</div>
                             <span>Porco</span>
                         </div>
-
                     </div>
 
                     <p>Qual nome você quer dar ao seu bichinho?</p>
-
-                    <input type="text" id="input-nome" placeholder="Digite o nome aqui" maxlength="10">
-
+                    <input type="text" id="input-nome" placeholder="Digite o nome aqui" maxlength="10" aria-label="Nome do bichinho">
                     <button id="botao-comecar" class="botao-acao">Começar</button>
-
                 </div>
 
+                <!-- Tela principal do jogo (inicialmente oculta) -->
                 <div id="container-jogo" style="display: none">
                     <h2 id="nome-bichinho"></h2>
 
@@ -85,6 +80,7 @@
                         </div>
                     </div>
 
+                    <!-- Barras de status do bichinho -->
                     <div class="status-container">
                         <div class="status-item">
                             <span class="status-label">Fome:</span>
@@ -112,30 +108,31 @@
                         </div>
                     </div>
 
+                    <!-- Botões de ação -->
                     <div class="botoes-container">
-                        <button id="botao-alimentar" class="botao-acao">🍕</button>
-                        <button id="botao-brincar" class="botao-acao">⚽</button>
-                        <button id="botao-limpar" class="botao-acao">🧼</button>
-                        <button id="botao-medicar" class="botao-acao">💊</button>
+                        <button id="botao-alimentar" class="botao-acao" aria-label="Alimentar">🍕</button>
+                        <button id="botao-brincar" class="botao-acao" aria-label="Brincar">⚽</button>
+                        <button id="botao-limpar" class="botao-acao" aria-label="Limpar">🧼</button>
+                        <button id="botao-medicar" class="botao-acao" aria-label="Medicar">💊</button>
                     </div>
 
-                    <button id="botao-reiniciar" class="botao-acao" style="display: none;">Reiniciar Jogo</button>
-
+                    <button id="botao-reiniciar" class="botao-acao" style="display: none;" aria-label="Reiniciar jogo">Reiniciar Jogo</button>
                     <p id="mensagem" class="mensagem"></p>
 
+                    <!-- Menu lateral com opções adicionais -->
                     <nav class="menu-lateral">
                         <button id="botao-loja" class="botao-menu" title="Loja">🛒</button>
                         <button id="botao-mini-games" class="botao-menu" title="Mini Games">🕹️</button>
                     </nav>
                 </div>
 
+                <!-- Loja de acessórios (inicialmente oculta) -->
                 <div id="container-loja" class="loja-container" style="display: none;">
                     <div class="loja-header">
                         <h2>Loja de Acessórios</h2>
-                        <button id="botao-sair-loja" class="botao-sair">X</button>
+                        <button id="botao-sair-loja" class="botao-sair" aria-label="Fechar loja">X</button>
                     </div>
                     <div class="acessorios-container">
-
                         <div class="acessorio-item" data-acessorio="coroa">
                             <div class="acessorio-emoji">👑</div>
                             <span>Coroa Real</span>
@@ -146,13 +143,11 @@
                             <span>Chapéu com Laço</span>
                             <button class="botao-comprar" data-acessorio="chapeu-laco">Equipar</button>
                         </div>
-
                         <div class="acessorio-item" data-acessorio="chapeu-cartola">
                             <div class="acessorio-emoji">🎩</div>
                             <span>Chapéu Cartola</span>
                             <button class="botao-comprar" data-acessorio="chapeu-cartola">Equipar</button>
                         </div>
-
                         <div class="acessorio-item" data-acessorio="laco">
                             <div class="acessorio-emoji">🎀</div>
                             <span>Laço de Princesa</span>
@@ -161,22 +156,20 @@
                     </div>
                 </div>
 
+                <!-- Área de mini games (inicialmente oculta) -->
                 <div id="container-mini-games" class="mini-games-container" style="display: none;">
                     <div class="loja-header">
                         <h2>Mini Games</h2>
-                        <button id="botao-sair-mini-games" class="botao-sair">X</button>
+                        <button id="botao-sair-mini-games" class="botao-sair" aria-label="Fechar mini games">X</button>
                     </div>
                     <div class="games-container">
-
-
+                        <!-- Os mini games serão adicionados aqui via JavaScript -->
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
 
     <script src="./assets/src/main.js"></script>
 </body>
-
 </html>

@@ -1,5 +1,6 @@
 @import url(./global.css);
 
+/* Estilos base para o corpo da página */
 body {
   display: flex;
   flex-direction: column;
@@ -12,6 +13,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Container principal do jogo */
 .container-principal {
   position: relative;
   display: flex;
@@ -29,6 +31,7 @@ body {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Tipografia */
 .container-principal h1 {
   font-size: 2rem;
 }
@@ -46,6 +49,7 @@ body {
   font-weight: bold;
 }
 
+/* Container do botão de tema */
 .container-tema {
   position: absolute;
   top: 1%;
@@ -61,6 +65,7 @@ body {
   cursor: pointer;
 }
 
+/* Containers de layout */
 .jogo-container,
 .conteudo-jogo,
 .tela-inicial,
@@ -88,6 +93,7 @@ body {
   gap: 1rem;
 }
 
+/* Botão de alternar tema */
 #botao-tema {
   font-size: 1.5rem;
   border-radius: 50%;
@@ -99,6 +105,7 @@ body {
   background: none;
 }
 
+/* Seleção de bichinhos */
 .selecao-bichinhos {
   display: flex;
   flex-wrap: wrap;
@@ -130,6 +137,7 @@ body {
   background-color: var(--cor-fundo-bichinho-selecionado);
 }
 
+/* Emojis dos bichinhos */
 .emoji-bichinho {
   font-size: 2.5rem;
   margin-bottom: 5px;
@@ -140,6 +148,7 @@ body {
   font-size: 6rem;
 }
 
+/* Campo de entrada de nome */
 #input-nome {
   padding: 12px;
   border: 1px solid var(--cor-borda);
@@ -155,6 +164,7 @@ body {
   font-weight: 600;
 }
 
+/* Botões de ação */
 .botao-acao {
   background-color: var(--cor-botoes);
   color: var(--cor-texto);
@@ -183,6 +193,7 @@ body {
   cursor: not-allowed;
 }
 
+/* Container de nível e experiência */
 .nivel-container {
   margin-bottom: 1rem;
 }
@@ -202,6 +213,7 @@ body {
   transition: width 0.5s ease-in-out;
 }
 
+/* Container do bichinho */
 .tamagotchi-container {
   position: relative;
   display: flex;
@@ -222,6 +234,7 @@ body {
   transition: background-color 0.5s ease-in-out;
 }
 
+/* Barras de status */
 .status-container {
   display: flex;
   flex-direction: column;
@@ -258,6 +271,7 @@ body {
   transition: width 0.5s ease-in-out;
 }
 
+/* Cores específicas para cada status */
 .fome {
   background-color: #ff9800;
 }
@@ -274,6 +288,7 @@ body {
   background-color: #f44336;
 }
 
+/* Container dos botões de ação */
 .botoes-container {
   display: flex;
   justify-content: space-between;
@@ -281,6 +296,7 @@ body {
   align-items: center;
 }
 
+/* Menu lateral */
 .menu-lateral {
   position: absolute;
   right: -70px;
@@ -313,6 +329,7 @@ body {
   transform: scale(1.05);
 }
 
+/* Loja e mini games */
 .loja-container,
 .mini-games-container {
   position: absolute;
@@ -357,6 +374,7 @@ body {
   background-color: var(--cor-botao-sair-hover);
 }
 
+/* Container de acessórios */
 .acessorios-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -406,6 +424,7 @@ body {
   background-color: var(--cor-botao-hover);
 }
 
+/* Acessórios equipados no bichinho */
 .acessorios-bichinho {
   position: absolute;
   top: 0;
@@ -424,6 +443,7 @@ body {
   font-size: 2rem;
 }
 
+/* Posicionamento dos acessórios */
 .coroa-equipado,
 .chapeu-cartola-equipado,
 .chapeu-laco-equipado {
@@ -434,6 +454,7 @@ body {
   top: 30%;
 }
 
+/* Mensagens do jogo */
 .mensagem {
   position: absolute;
   top: 20%;
@@ -448,6 +469,7 @@ body {
   width: 100%;
 }
 
+/* Media queries para responsividade */
 @media screen and (max-width: 768px) {
   body {
     height: 100%;
@@ -488,6 +510,7 @@ body {
     transform: translateY(0);
   }
 
+  /* Ajustes de posicionamento para mobile */
   .coroa-equipado,
   .chapeu-cartola-equipado,
   .chapeu-laco-equipado {
@@ -497,5 +520,4 @@ body {
   .laco-equipado {
     top: 22%;
   }
-
 }
