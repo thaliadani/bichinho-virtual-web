@@ -193,24 +193,10 @@ body {
   cursor: not-allowed;
 }
 
-/* Container de nível e experiência */
-.nivel-container {
+.moedas-container {
+  font-size: 1.2rem;
+  font-weight: bold;
   margin-bottom: 1rem;
-}
-
-.experiencia-bar {
-  width: 200px;
-  background-color: var(--cor-fundo);
-  border-radius: 8px;
-  overflow: hidden;
-  height: 10px;
-}
-
-.experiencia-progresso {
-  height: 100%;
-  width: 0%;
-  background-color: #bb5bd3;
-  transition: width 0.5s ease-in-out;
 }
 
 /* Container do bichinho */
@@ -447,11 +433,11 @@ body {
 .coroa-equipado,
 .chapeu-cartola-equipado,
 .chapeu-laco-equipado {
-  top: 25%;
+  top: 15%;
 }
 
 .laco-equipado {
-  top: 30%;
+  top: 20%;
 }
 
 /* Mensagens do jogo */
@@ -467,6 +453,66 @@ body {
   font-size: 1.2em;
   text-align: center;
   width: 100%;
+}
+
+/* Estilos para o Jogo da Velha */
+#jogo-da-velha-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+  background-color: #333;
+  border: 5px solid #333;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.celula {
+  width: 100px;
+  height: 100px;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.celula:hover {
+  background-color: #ddd;
+}
+
+.celula.x {
+  color: #f44336;
+}
+
+.celula.o {
+  color: #2196f3;
+}
+
+.status-jogo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.botao-game-action {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.botao-game-action:hover {
+  background-color: #45a049;
 }
 
 /* Media queries para responsividade */
@@ -514,10 +560,10 @@ body {
   .coroa-equipado,
   .chapeu-cartola-equipado,
   .chapeu-laco-equipado {
-    top: 20%;
+    top: 25%;
   }
 
   .laco-equipado {
-    top: 22%;
+    top: 20%;
   }
 }

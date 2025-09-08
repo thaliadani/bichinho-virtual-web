@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -7,6 +8,7 @@
     <title>Meu Bichinho Virtual</title>
     <link rel="stylesheet" href="./assets/styles/main.css">
 </head>
+
 <body>
     <main class="container-principal">
         <!-- Botão para alternar entre temas claro/escuro -->
@@ -58,7 +60,8 @@
                     </div>
 
                     <p>Qual nome você quer dar ao seu bichinho?</p>
-                    <input type="text" id="input-nome" placeholder="Digite o nome aqui" maxlength="10" aria-label="Nome do bichinho">
+                    <input type="text" id="input-nome" placeholder="Digite o nome aqui" maxlength="10"
+                        aria-label="Nome do bichinho">
                     <button id="botao-comecar" class="botao-acao">Começar</button>
                 </div>
 
@@ -66,12 +69,7 @@
                 <div id="container-jogo" style="display: none">
                     <h2 id="nome-bichinho"></h2>
 
-                    <div class="nivel-container">
-                        <span>Nível <span id="nivel-bichinho">1</span></span>
-                        <div class="experiencia-bar">
-                            <div class="experiencia-progresso"></div>
-                        </div>
-                    </div>
+                    <p class="moedas-container">Moedas: <span id="moedas">0</span>🪙</p>
 
                     <div class="tamagotchi-container">
                         <div class="tamagotchi-bichinho">
@@ -116,7 +114,8 @@
                         <button id="botao-medicar" class="botao-acao" aria-label="Medicar">💊</button>
                     </div>
 
-                    <button id="botao-reiniciar" class="botao-acao" style="display: none;" aria-label="Reiniciar jogo">Reiniciar Jogo</button>
+                    <button id="botao-reiniciar" class="botao-acao" style="display: none;"
+                        aria-label="Reiniciar jogo">Reiniciar Jogo</button>
                     <p id="mensagem" class="mensagem"></p>
 
                     <!-- Menu lateral com opções adicionais -->
@@ -163,13 +162,31 @@
                         <button id="botao-sair-mini-games" class="botao-sair" aria-label="Fechar mini games">X</button>
                     </div>
                     <div class="games-container">
-                        <!-- Os mini games serão adicionados aqui via JavaScript -->
+                        <div class="mini-game-card">
+                            <h3>Jogo da Velha</h3>
+                            <div id="jogo-da-velha-container">
+                                <div id="jogo-da-velha-board">
+                                    <div class="celula" data-index="0"></div>
+                                    <div class="celula" data-index="1"></div>
+                                    <div class="celula" data-index="2"></div>
+                                    <div class="celula" data-index="3"></div>
+                                    <div class="celula" data-index="4"></div>
+                                    <div class="celula" data-index="5"></div>
+                                    <div class="celula" data-index="6"></div>
+                                    <div class="celula" data-index="7"></div>
+                                    <div class="celula" data-index="8"></div>
+                                </div>
+                                <div id="jogo-da-velha-status" class="status-jogo"></div>
+                                <button id="reiniciar-jogo-velha" class="botao-game-action">Reiniciar Jogo</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <script src="./assets/src/main.js"></script>
+    <script src="./assets/src/main.js" type="module" defer></script>
 </body>
+
 </html>
