@@ -39,6 +39,18 @@ const celulas = document.querySelectorAll("#jogo-da-velha-board .celula");
 const statusJogoVelha = document.getElementById("jogo-da-velha-status");
 const reiniciarJogoVelha = document.getElementById("reiniciar-jogo-velha");
 
+// ===== SELEÇÃO DE SONS =====
+const backgroundAudio = new Audio("../../assets/sounds/funbgm032014(fun).wav");
+backgroundAudio.loop = true;
+backgroundAudio.volume = 0.04;
+
+const clickAudio = new Audio("../../assets/sounds/Menu Selection Click.wav");
+clickAudio.volume = 0.2;
+const cutAudio = new Audio("../../assets/sounds/zipclick.flac");
+cutAudio.volume = 0.2;
+const coinAudio = new Audio("../../assets/sounds/coinsplash.ogg");
+coinAudio.volume = 0.2;
+
 // ===== CONSTANTES E CONFIGURAÇÕES =====
 /**
  * Mapeamento de emojis para cada tipo de bichinho disponível
@@ -131,6 +143,7 @@ function atualizarUI() {
 }
 
 function adicionarMoedas(qtd) {
+    coinAudio.play();
     meuBichinho.moedas += qtd;
     salvarDados();
     atualizarUI();
@@ -251,6 +264,7 @@ function fecharLoja() {
 }
 
 function equiparOuDesequiparAcessorio(tipoAcessorio) {
+    clickAudio.play();
     // Lógica para garantir que apenas um acessório esteja equipado por vez
     if (meuBichinho.acessorios.hasOwnProperty(tipoAcessorio)) {
         const isEquipado = meuBichinho.acessorios[tipoAcessorio].equipado;
@@ -278,6 +292,7 @@ function equiparOuDesequiparAcessorio(tipoAcessorio) {
                 equipado: true
             };
 
+            coinAudio.play();
             exibirMensagem(`Você comprou e equipou o acessório!`);
         } else {
             exibirMensagem("Moedas insuficientes para comprar este acessório!");
@@ -371,6 +386,7 @@ function iniciarJogoDaVelha() {
 }
 
 function lidarComClick(evento) {
+    clickAudio.play();
     const celulaClicada = evento.target;
     const index = celulaClicada.getAttribute("data-index");
 
@@ -430,8 +446,7 @@ function jogadaDoBot() {
             jogoAtivo = false;
             reiniciarJogoVelha.style.display = "block";
         }
-        // ******* TRECHO CORRIGIDO *******
-        // Garante que os cliques voltem a funcionar mesmo após o movimento do bot
+
         jogoDaVelhaBoard.style.pointerEvents = 'auto';
         return;
     }
@@ -462,9 +477,6 @@ function jogadaDoBot() {
         return;
     }
 
-    // Se por algum motivo o jogo não terminou, reativa os cliques
-    // ******* TRECHO CORRIGIDO *******
-    // Este código garante que os cliques sempre serão reativados
     jogoDaVelhaBoard.style.pointerEvents = 'auto';
 }
 
@@ -512,7 +524,9 @@ function darRecompensa() {
 
 // ===== CONFIGURAÇÃO DE EVENT LISTENERS =====
 document.addEventListener('DOMContentLoaded', aplicarTemaSalvo);
+
 botaoTema.addEventListener('click', () => {
+    clickAudio.play();
     corpoDocumento.classList.toggle('dark-mode');
     if (corpoDocumento.classList.contains('dark-mode')) {
         localStorage.setItem('tema', 'escuro');
@@ -522,14 +536,19 @@ botaoTema.addEventListener('click', () => {
         botaoTema.textContent = '🌑';
     }
 });
+
 opcoesBichinhos.forEach((opcao) => {
-    opcao.addEventListener("click", () => {
+    opcao.addEventListener("click", () => { 
+        clickAudio.play();
+
         opcoesBichinhos.forEach((o) => o.classList.remove("selecionado"));
         opcao.classList.add("selecionado");
         meuBichinho.tipo = opcao.getAttribute("data-tipo");
     });
 });
+
 botaoComecar.addEventListener("click", () => {
+    clickAudio.play();
     if (inputNome.value.trim() !== "") {
         iniciarJogo();
     } else {
@@ -540,13 +559,16 @@ botaoComecar.addEventListener("click", () => {
 
 // Ações de cuidado com o bichinho (não dão moedas)
 botaoAlimentar.addEventListener("click", () => {
+    clickAudio.play();
     if (meuBichinho.fome >= 100) return;
     meuBichinho.fome = Math.min(100, meuBichinho.fome + 20);
     exibirMensagem("Bichinho alimentado!");
     atualizarUI();
     salvarDados();
 });
+
 botaoBrincar.addEventListener("click", () => {
+    clickAudio.play();
     if (meuBichinho.felicidade >= 100) return;
     meuBichinho.felicidade = Math.min(100, meuBichinho.felicidade + 20);
     meuBichinho.fome = Math.max(0, meuBichinho.fome - 5);
@@ -554,14 +576,18 @@ botaoBrincar.addEventListener("click", () => {
     atualizarUI();
     salvarDados();
 });
+
 botaoLimpar.addEventListener("click", () => {
+    clickAudio.play();
     if (meuBichinho.higiene >= 100) return;
     meuBichinho.higiene = Math.min(100, meuBichinho.higiene + 20);
     exibirMensagem("Agora está limpinho!");
     atualizarUI();
     salvarDados();
 });
+
 botaoMedicar.addEventListener("click", () => {
+    clickAudio.play();
     if (meuBichinho.saude >= 100) return;
     meuBichinho.saude = Math.min(100, meuBichinho.saude + 20);
     exibirMensagem("Bichinho medicado!");
@@ -570,15 +596,32 @@ botaoMedicar.addEventListener("click", () => {
 });
 
 botaoReiniciar.addEventListener("click", () => {
+    clickAudio.play();
     meuBichinho.nome = "Bichinho";
     localStorage.removeItem("meuBichinho");
     location.reload();
 });
 
-botaoLoja.addEventListener("click", abrirLoja);
-botaoSairLoja.addEventListener("click", fecharLoja);
-botaoMiniGames.addEventListener("click", abrirMiniGames);
-botaoSairMiniGames.addEventListener("click", fecharMiniGames);
+botaoLoja.addEventListener("click", () => {
+    clickAudio.play();
+    abrirLoja();
+});
+
+botaoSairLoja.addEventListener("click", () => {
+    cutAudio.play();
+    fecharLoja();
+});
+
+botaoMiniGames.addEventListener("click", () => {
+    clickAudio.play()
+    abrirMiniGames();
+});
+
+botaoSairMiniGames.addEventListener("click", () => {
+    cutAudio.play();
+    fecharMiniGames();
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     const botoesComprar = document.querySelectorAll(".botao-comprar");
     botoesComprar.forEach((botao) => {
@@ -588,7 +631,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-reiniciarJogoVelha.addEventListener("click", iniciarJogoDaVelha);
+
+reiniciarJogoVelha.addEventListener("click", () => {
+    clickAudio.play();
+    iniciarJogoDaVelha();
+});
+
 window.addEventListener("load", function () {
     const tamagotchiContainer = document.querySelector(".tamagotchi-container");
     const acessoriosContainer = document.createElement("div");
@@ -601,4 +649,5 @@ window.addEventListener("load", function () {
 });
 
 // ===== INICIALIZAÇÃO DO JOGO =====
+backgroundAudio.play();
 carregarDados();
