@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/styles/main.css">
 </head>
 
-<body>
+<body data-status="loading">
     <main class="container-principal">
 
         <div class="container-config">
@@ -17,7 +17,7 @@
             <button type="button" id="botao-config">⚙️</button>
 
             <!-- Menu da configuração -->
-            <nav class="menu-config" id="menu-config" style=display:none>
+            <nav class="menu-config" id="menu-config" style="display:none">
                 <button type="button" id="botao-config-fechar">X</button>
 
                 <!-- Input para mudar volume da música e sons -->
@@ -33,6 +33,11 @@
         <div class="container-tema">
             <!-- Botão para alternar entre temas claro/escuro -->
             <button type="button" id="botao-tema" aria-label="Alternar tema claro/escuro"></button>
+        </div>
+
+        <div id="notificacao-audio" class="notificacao-audio">
+            <span>O áudio do jogo foi desativado.</span>
+            <button id="botao-ativar-audio">Ativar Som</button>
         </div>
 
         <section class="jogo-container">
@@ -97,8 +102,6 @@
                         </div>
                     </div>
 
-                    <p id="mensagem" class="mensagem"></p>
-
                     <!-- Barras de status do bichinho -->
                     <div class="status-container">
                         <div class="status-item">
@@ -135,6 +138,8 @@
                         <button id="botao-medicar" class="botao-acao" aria-label="Medicar">💊</button>
                     </div>
 
+                    <p id="mensagem" class="mensagem"></p>
+
                     <button id="botao-reiniciar" class="botao-acao" style="display: none;"
                         aria-label="Reiniciar jogo">Reiniciar Jogo</button>
 
@@ -152,7 +157,7 @@
                         <h2>Loja de Acessórios</h2>
                         <button id="botao-sair-loja" class="botao-sair" aria-label="Fechar loja">X</button>
                     </div>
-                    
+
                     <div class="acessorios-container">
                         <div class="acessorio-item" data-acessorio="coroa">
                             <div class="acessorio-emoji">👑</div>

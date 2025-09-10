@@ -10,6 +10,44 @@ body {
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden;
+}
+
+body[data-status="loading"] #container-jogo {
+  display: none;
+}
+
+body[data-status="loading"] #boas-vindas {
+  display: none;
+}
+
+.notificacao-audio {
+    position: fixed;
+    top: 20px;
+    background-color: var(--cor-principal);
+    color: var(--cor-texto);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    z-index: 1000;
+}
+
+.notificacao-audio button {
+    background-color: var(--cor-botoes);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.notificacao-audio button:hover {
+    background-color: var(--cor-botoes-hover);
 }
 
 .container-principal {
@@ -542,11 +580,6 @@ input[type="range"]::-moz-focus-outer {
 }
 
 @media screen and (max-width: 768px) {
-  body {
-    width: 100%;
-    height: 100%;
-  }
-
   .container-principal,
   .tela-inicial,
   .loja-container,
@@ -557,8 +590,12 @@ input[type="range"]::-moz-focus-outer {
   }
 
   .container-principal {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+  }
+
+  .notificacao-audio{
+      flex-direction: column;
   }
 
   .loja-container,
@@ -576,6 +613,7 @@ input[type="range"]::-moz-focus-outer {
 
   .menu-lateral {
     background: none;
+    left: 70%;
   }
 
   .acessorio-equipado.coroa-equipado,

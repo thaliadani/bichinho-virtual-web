@@ -4,6 +4,9 @@
 const telaBoasVindas = document.getElementById("boas-vindas");
 const containerJogo = document.getElementById("container-jogo");
 
+const notificacaoAudio = document.getElementById("notificacao-audio");
+const botaoAtivarAudio = document.getElementById("botao-ativar-audio");
+
 const tamagotchiBichinho = document.querySelector(".tamagotchi-bichinho");
 const emojiBichinhoElemento = document.getElementById("emoji-bichinho");
 
@@ -65,9 +68,6 @@ const cutAudio = new Audio("../../assets/sounds/zipclick.flac");
 const coinAudio = new Audio("../../assets/sounds/coinsplash.ogg");
 
 // ===== CONSTANTES E CONFIGURAÇÕES FIXAS =====
-/**
- * Mapeamento de emojis para cada tipo de bichinho disponível.
- */
 const EMOJIS_BICHINHOS = {
     cachorro: "🐶",
     gato: "🐱",
@@ -79,9 +79,6 @@ const EMOJIS_BICHINHOS = {
     porco: "🐷",
 };
 
-/**
- * Mapeamento de preços para cada acessório na loja.
- */
 const PRECOS_ACESSORIOS = {
     coroa: 10,
     "chapeu-laco": 10,
@@ -89,16 +86,14 @@ const PRECOS_ACESSORIOS = {
     laco: 10,
 };
 
-// Condições de vitória para o Jogo da Velha.
 const condicoesDeVitoria = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Linhas
-    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colunas
-    [0, 4, 8], [2, 4, 6]  // Diagonais
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    [0, 4, 8], [2, 4, 6]
 ];
 
 
 // ===== VARIÁVEIS GLOBAIS DO JOGO =====
-// Objeto que armazena o estado atual do bichinho.
 let meuBichinho = {
     nome: "Bichinho",
     tipo: "cachorro",
@@ -110,47 +105,36 @@ let meuBichinho = {
     acessorios: {},
 };
 
-let gameLoop; // Variável para o intervalo de tempo do jogo principal.
-
-// Variáveis de estado do Jogo da Velha
+let gameLoop;
 let boardState = ["", "", "", "", "", "", "", "", ""];
-let jogoAtivo = true; // Controla se o mini game está em andamento.
+let jogoAtivo = true;
 
 // ===== FUNÇÕES PRINCIPAIS DO JOGO =====
 
-/**
- * Atualiza a interface do usuário com os dados atuais do bichinho.
- * Isso inclui as barras de status, o emoji, o nome e as moedas.
- * Também controla a cor de fundo do bichinho com base na sua saúde geral.
- */
 function atualizarUI() {
     statusFome.style.width = meuBichinho.fome + "%";
     statusFelicidade.style.width = meuBichinho.felicidade + "%";
     statusHigiene.style.width = meuBichinho.higiene + "%";
     statusSaude.style.width = meuBichinho.saude + "%";
-
     emojiBichinhoElemento.textContent = EMOJIS_BICHINHOS[meuBichinho.tipo];
 
     if (meuBichinho.saude <= 0) {
-        // Estado de "morte" do bichinho
         tamagotchiBichinho.style.backgroundColor = "#9e9e9e";
         tamagotchiBichinho.style.filter = "grayscale(80%)";
     } else {
-        // Altera a cor de fundo do bichinho com base na média de seus status
         const notaGeral = (meuBichinho.fome + meuBichinho.felicidade + meuBichinho.higiene + meuBichinho.saude) / 4;
         if (notaGeral >= 70) {
-            tamagotchiBichinho.style.backgroundColor = "#4caf50"; // Verde
+            tamagotchiBichinho.style.backgroundColor = "#4caf50";
         } else if (notaGeral >= 40) {
-            tamagotchiBichinho.style.backgroundColor = "#ffc107"; // Amarelo
+            tamagotchiBichinho.style.backgroundColor = "#ffc107";
         } else if (notaGeral >= 10) {
-            tamagotchiBichinho.style.backgroundColor = "#ff9800"; // Laranja
+            tamagotchiBichinho.style.backgroundColor = "#ff9800";
         } else {
-            tamagotchiBichinho.style.backgroundColor = "#f44336"; // Vermelho
+            tamagotchiBichinho.style.backgroundColor = "#f44336";
         }
         tamagotchiBichinho.style.filter = "none";
     }
 
-    // Desabilita botões de ação se o status já estiver no máximo
     botaoAlimentar.disabled = meuBichinho.fome >= 100;
     botaoBrincar.disabled = meuBichinho.felicidade >= 100;
     botaoLimpar.disabled = meuBichinho.higiene >= 100;
@@ -164,10 +148,6 @@ function atualizarUI() {
     atualizarAcessorios();
 }
 
-/**
- * Adiciona moedas ao saldo do bichinho e salva os dados.
- * @param {number} qtd - A quantidade de moedas a ser adicionada.
- */
 function adicionarMoedas(qtd) {
     coinAudio.play();
     meuBichinho.moedas += qtd;
@@ -175,35 +155,27 @@ function adicionarMoedas(qtd) {
     atualizarUI();
 }
 
-/**
- * Salva o estado atual do bichinho no Local Storage do navegador.
- */
 function salvarDados() {
     localStorage.setItem("meuBichinho", JSON.stringify(meuBichinho));
 }
 
-/**
- * Carrega os dados do bichinho do Local Storage.
- * Se houver dados salvos, o jogo é iniciado. Caso contrário, a tela de boas-vindas é exibida.
- */
 function carregarDados() {
     const dadosSalvos = localStorage.getItem("meuBichinho");
     if (dadosSalvos) {
         meuBichinho = JSON.parse(dadosSalvos);
+        // Atualiza o atributo do body para indicar que o jogo está sendo carregado.
+        document.body.setAttribute('data-status', 'game');
         iniciarJogo();
     } else {
+        // Se não houver dados salvos, a tela de boas-vindas é mostrada.
+        document.body.setAttribute('data-status', 'welcome');
         telaBoasVindas.style.display = "flex";
         containerJogo.style.display = "none";
-        // Define o bichinho padrão se não houver dados salvos.
         opcoesBichinhos[0].classList.add("selecionado");
         meuBichinho.tipo = opcoesBichinhos[0].getAttribute("data-tipo");
     }
 }
 
-/**
- * Inicia o jogo principal: esconde a tela de boas-vindas, mostra o jogo
- * e inicia o loop principal do jogo.
- */
 function iniciarJogo() {
     telaBoasVindas.style.display = "none";
     containerJogo.style.display = "flex";
@@ -214,14 +186,18 @@ function iniciarJogo() {
         meuBichinho.nome = inputNome.value.trim();
     }
 
+    // Tenta iniciar a reprodução da música de fundo.
+    backgroundAudio.play().catch(e => {
+        // Se a reprodução automática for bloqueada, mostre a notificação.
+        console.error("A reprodução automática do áudio foi bloqueada pelo navegador:", e);
+        notificacaoAudio.style.display = "flex";
+    });
+
     atualizarUI();
     salvarDados();
-    gameLoop = setInterval(passarTempo, 1000); // O loop do jogo roda a cada 1 segundo.
+    gameLoop = setInterval(passarTempo, 1000);
 }
 
-/**
- * Reinicia o estado do bichinho para os valores padrão.
- */
 function reiniciarJogo() {
     meuBichinho.fome = 100;
     meuBichinho.felicidade = 100;
@@ -243,13 +219,8 @@ function reiniciarJogo() {
     gameLoop = setInterval(passarTempo, 1000);
 }
 
-/**
- * Função principal do game loop, chamada a cada segundo.
- * Diminui os status do bichinho e verifica se ele morreu.
- */
 function passarTempo() {
     if (meuBichinho.saude <= 0) {
-        // Lógica de morte do bichinho
         mensagemElemento.textContent = `Oh não! ${meuBichinho.nome} morreu.`;
         tamagotchiBichinho.style.backgroundColor = "#9e9e9e";
         tamagotchiBichinho.style.filter = "grayscale(80%)";
@@ -257,21 +228,18 @@ function passarTempo() {
 
         controlarVisibilidadeBotoes(false);
         botaoReiniciar.style.display = "block";
-        clearInterval(gameLoop); // Para o game loop.
+        clearInterval(gameLoop);
         return;
     }
 
-    // Diminui os status do bichinho
     meuBichinho.fome -= 1;
     meuBichinho.felicidade -= 1;
     meuBichinho.higiene -= 1;
 
-    // Garante que os valores não fiquem negativos
     meuBichinho.fome = Math.max(0, meuBichinho.fome);
     meuBichinho.felicidade = Math.max(0, meuBichinho.felicidade);
     meuBichinho.higiene = Math.max(0, meuBichinho.higiene);
 
-    // Se algum status está em zero, a saúde diminui
     if (meuBichinho.fome <= 0 || meuBichinho.felicidade <= 0 || meuBichinho.higiene <= 0) {
         meuBichinho.saude -= 2;
         meuBichinho.saude = Math.max(0, meuBichinho.saude);
@@ -281,10 +249,6 @@ function passarTempo() {
     salvarDados();
 }
 
-/**
- * Controla a visibilidade dos botões de ação do jogo.
- * @param {boolean} visivel - 'true' para mostrar os botões, 'false' para escondê-los.
- */
 function controlarVisibilidadeBotoes(visivel) {
     const botoesContainer = document.querySelector(".botoes-container");
     botoesContainer.style.display = visivel ? "flex" : "none";
@@ -299,9 +263,6 @@ function fecharConfig() {
     containerConfig.style.display = "none";
 }
 
-/**
- * Aplica o tema (claro ou escuro) salvo no Local Storage.
- */
 function aplicarTemaSalvo() {
     const temaSalvo = localStorage.getItem('tema');
     if (temaSalvo === 'escuro') {
@@ -324,30 +285,21 @@ function fecharLoja() {
     containerLoja.style.display = "none";
 }
 
-/**
- * Gerencia a compra, equipa e desequipa acessórios.
- * @param {string} tipoAcessorio - O tipo de acessório a ser manipulado.
- */
 function equiparOuDesequiparAcessorio(tipoAcessorio) {
     clickAudio.play();
 
-    // Se o acessório já foi comprado
     if (meuBichinho.acessorios.hasOwnProperty(tipoAcessorio)) {
         const isEquipado = meuBichinho.acessorios[tipoAcessorio].equipado;
-        // Desequipa todos os acessórios antes de equipar um novo
         for (const acessorio in meuBichinho.acessorios) {
             meuBichinho.acessorios[acessorio].equipado = false;
         }
-        // Se o acessório clicado não estava equipado, ele será agora.
         if (!isEquipado) {
             meuBichinho.acessorios[tipoAcessorio].equipado = true;
         }
     } else {
-        // Lógica de compra
         const preco = PRECOS_ACESSORIOS[tipoAcessorio];
         if (meuBichinho.moedas >= preco) {
             meuBichinho.moedas -= preco;
-            // Desequipa os outros ao comprar um novo
             for (const acessorio in meuBichinho.acessorios) {
                 meuBichinho.acessorios[acessorio].equipado = false;
             }
@@ -367,20 +319,16 @@ function equiparOuDesequiparAcessorio(tipoAcessorio) {
     atualizarBotoesLoja();
 }
 
-/**
- * Adiciona os emojis dos acessórios equipados ao bichinho.
- */
 function atualizarAcessorios() {
     const containerAcessorios = document.getElementById("acessorios-bichinho");
     if (!containerAcessorios) return;
 
-    containerAcessorios.innerHTML = ""; // Limpa os acessórios atuais
+    containerAcessorios.innerHTML = "";
     for (const tipoAcessorio in meuBichinho.acessorios) {
         if (meuBichinho.acessorios[tipoAcessorio].equipado) {
             const emojiAcessorio = document.createElement("div");
             emojiAcessorio.classList.add("acessorio-equipado", `${tipoAcessorio}-equipado`);
 
-            // Mapeia o nome do acessório para o emoji correspondente
             switch (tipoAcessorio) {
                 case "coroa":
                     emojiAcessorio.textContent = "👑";
@@ -400,9 +348,6 @@ function atualizarAcessorios() {
     }
 }
 
-/**
- * Atualiza o texto e a aparência dos botões da loja com base no estado de compra dos acessórios.
- */
 function atualizarBotoesLoja() {
     botoesComprar.forEach(botao => {
         const tipoAcessorio = botao.getAttribute("data-acessorio");
@@ -421,10 +366,6 @@ function atualizarBotoesLoja() {
     });
 }
 
-/**
- * Exibe uma mensagem temporária na tela.
- * @param {string} texto - A mensagem a ser exibida.
- */
 function exibirMensagem(texto) {
     mensagemElemento.textContent = texto;
     setTimeout(() => {
@@ -445,10 +386,6 @@ function fecharMiniGames() {
 
 
 // ===== LÓGICA DO JOGO DA VELHA =====
-
-/**
- * Reseta o tabuleiro e o estado do Jogo da Velha para um novo jogo.
- */
 function iniciarJogoDaVelha() {
     boardState = ["", "", "", "", "", "", "", "", ""];
     jogoAtivo = true;
@@ -457,17 +394,12 @@ function iniciarJogoDaVelha() {
     celulas.forEach(celula => {
         celula.textContent = "";
         celula.classList.remove("x", "o");
-        // Remove e adiciona o evento para evitar múltiplos listeners.
         celula.removeEventListener("click", lidarComClick);
         celula.addEventListener("click", lidarComClick, { once: true });
     });
-    jogoDaVelhaBoard.style.pointerEvents = 'auto'; // Reativa os cliques.
+    jogoDaVelhaBoard.style.pointerEvents = 'auto';
 }
 
-/**
- * Manipula o clique do jogador e inicia a jogada do bot.
- * @param {Event} evento - O evento de clique.
- */
 function lidarComClick(evento) {
     clickAudio.play();
     const celulaClicada = evento.target;
@@ -497,14 +429,6 @@ function lidarComClick(evento) {
     setTimeout(jogadaDoBot, 1000);
 }
 
-/**
- * Implementa a lógica de jogada do computador (bot).
- * A lógica segue uma hierarquia de prioridades:
- * 1. Tentar vencer.
- * 2. Bloquear a vitória do jogador.
- * 3. Pegar o centro.
- * 4. Fazer uma jogada aleatória.
- */
 function jogadaDoBot() {
     const movimentoVitoria = checarMovimentoVencedor("O");
     if (movimentoVitoria !== null) {
@@ -546,11 +470,6 @@ function jogadaDoBot() {
     jogoDaVelhaBoard.style.pointerEvents = 'auto';
 }
 
-/**
- * Checa se um jogador pode vencer na próxima jogada e retorna o índice da célula para a vitória.
- * @param {string} player - O jogador a ser verificado ("X" ou "O").
- * @returns {number|null} O índice da célula para a vitória ou null se não houver.
- */
 function checarMovimentoVencedor(player) {
     for (let i = 0; i < condicoesDeVitoria.length; i++) {
         const [a, b, c] = condicoesDeVitoria[i];
@@ -561,11 +480,6 @@ function checarMovimentoVencedor(player) {
     return null;
 }
 
-/**
- * Executa uma jogada em uma célula específica.
- * @param {number} index - O índice da célula.
- * @param {string} player - O jogador ("X" ou "O").
- */
 function fazerJogada(index, player) {
     boardState[index] = player;
     celulas[index].textContent = player;
@@ -574,67 +488,120 @@ function fazerJogada(index, player) {
     statusJogoVelha.textContent = `Sua vez (X)!`;
 }
 
-/**
- * Verifica se um jogador venceu o jogo.
- * @param {string} player - O jogador a ser verificado ("X" ou "O").
- * @returns {boolean} True se o jogador venceu, false caso contrário.
- */
 function checarVitoria(player) {
     return condicoesDeVitoria.some(condicao => {
         return condicao.every(index => boardState[index] === player);
     });
 }
 
-/**
- * Verifica se o jogo da velha resultou em empate.
- * @returns {boolean} True se for um empate, false caso contrário.
- */
 function checarEmpate() {
     return boardState.every(celula => celula !== "");
 }
 
-/**
- * Finaliza o jogo da velha, desabilitando novas jogadas e mostrando o botão de reiniciar.
- */
 function finalizarJogo() {
     jogoAtivo = false;
     reiniciarJogoVelha.style.display = "block";
     jogoDaVelhaBoard.style.pointerEvents = 'auto';
 }
 
-/**
- * Concede moedas ao jogador como recompensa.
- */
 function darRecompensa() {
     const moedasGanhas = 5;
     adicionarMoedas(moedasGanhas);
     exibirMensagem(`Você ganhou ${moedasGanhas} moedas!`);
 }
 
-// Configurações de Áudio Padrão
-backgroundAudio.loop = true;
-backgroundAudio.volume = 0.04;
-clickAudio.volume = 0.2;
-cutAudio.volume = 0.2;
-coinAudio.volume = 0.2;
+/**
+ * Salva as configurações de volume no Local Storage.
+ */
+function salvarConfiguracoesDeAudio() {
+    localStorage.setItem("volumeMusica", sliderMusica.value);
+    localStorage.setItem("volumeSons", sliderSons.value);
+}
 
+/**
+ * Carrega as configurações de volume salvas no Local Storage.
+ */
+function carregarConfiguracoesDeAudio() {
+    const volumeMusicaSalvo = localStorage.getItem("volumeMusica");
+    const volumeSonsSalvo = localStorage.getItem("volumeSons");
+
+    if (volumeMusicaSalvo !== null) {
+        const novoVolume = parseFloat(volumeMusicaSalvo) / 100;
+        backgroundAudio.volume = novoVolume;
+        sliderMusica.value = volumeMusicaSalvo;
+    } else {
+        backgroundAudio.volume = 0.04;
+    }
+
+    if (volumeSonsSalvo !== null) {
+        const sonsVolume = parseFloat(volumeSonsSalvo) / 100;
+        clickAudio.volume = sonsVolume;
+        cutAudio.volume = sonsVolume;
+        coinAudio.volume = sonsVolume;
+        sliderSons.value = volumeSonsSalvo;
+    } else {
+        const sonsVolumePadrao = 0.2;
+        clickAudio.volume = sonsVolumePadrao;
+        cutAudio.volume = sonsVolumePadrao;
+        coinAudio.volume = sonsVolumePadrao;
+    }
+}
 
 // ===== CONFIGURAÇÃO DE EVENT LISTENERS (MONITORAMENTO DE EVENTOS) =====
-// Eventos de configurações de áudio
-botaoConfig.addEventListener('click', abrirConfig);
-botaoConfigFechar.addEventListener('click', fecharConfig);
+
+botaoAtivarAudio.addEventListener('click', () => {
+    // Tente reproduzir a música novamente com a interação do usuário.
+    backgroundAudio.play().then(() => {
+        // Se a reprodução for bem-sucedida, esconda a notificação.
+        notificacaoAudio.style.display = 'none';
+    }).catch(e => {
+        console.error("Erro ao tentar ativar o áudio:", e);
+    });
+});
+
+botaoConfig.addEventListener('click', () => {
+    clickAudio.play();
+    abrirConfig();
+});
+
+botaoConfigFechar.addEventListener('click', () => {
+    cutAudio.play();
+    fecharConfig();
+});
 
 sliderMusica.addEventListener('input', (evento) => {
-    backgroundAudio.volume = evento.target.value;
+    // Pega o valor do slider e o converte para o intervalo de 0 a 1.
+    const valorSlider = parseFloat(evento.target.value);
+    const novoVolume = valorSlider / 100;
+
+    backgroundAudio.volume = novoVolume;
+
+    // Se o áudio estiver pausado e o volume for maior que 0, inicie a reprodução.
+    if (novoVolume > 0 && backgroundAudio.paused) {
+        backgroundAudio.play().catch(e => {
+            console.error("Erro ao tentar retomar a reprodução do áudio:", e);
+        });
+    }
+
+    // Salva o valor do slider no localStorage.
+    salvarConfiguracoesDeAudio();
 });
 
 sliderSons.addEventListener('input', (evento) => {
-    clickAudio.volume = evento.target.value;
-    cutAudio.volume = evento.target.value;
+    // Pega o valor do slider e o converte para o intervalo de 0 a 1.
+    const valorSlider = parseFloat(evento.target.value);
+    const sonsVolume = valorSlider / 100;
+
+    clickAudio.volume = sonsVolume;
+    cutAudio.volume = sonsVolume;
+    coinAudio.volume = sonsVolume;
+
+    // Salva o valor do slider no localStorage.
+    salvarConfiguracoesDeAudio();
 });
 
-// Eventos de tema
 document.addEventListener('DOMContentLoaded', aplicarTemaSalvo);
+
 botaoTema.addEventListener('click', () => {
     clickAudio.play();
     corpoDocumento.classList.toggle('dark-mode');
@@ -647,7 +614,6 @@ botaoTema.addEventListener('click', () => {
     }
 });
 
-// Eventos da tela de boas-vindas
 opcoesBichinhos.forEach((opcao) => {
     opcao.addEventListener("click", () => {
         clickAudio.play();
@@ -667,7 +633,6 @@ botaoComecar.addEventListener("click", () => {
     }
 });
 
-// Ações de cuidado com o bichinho
 botaoAlimentar.addEventListener("click", () => {
     clickAudio.play();
     if (meuBichinho.fome >= 100) return;
@@ -709,10 +674,9 @@ botaoReiniciar.addEventListener("click", () => {
     clickAudio.play();
     meuBichinho.nome = "Bichinho";
     localStorage.removeItem("meuBichinho");
-    location.reload(); // Recarrega a página para reiniciar completamente o jogo.
+    location.reload();
 });
 
-// Eventos da loja
 botaoLoja.addEventListener("click", () => {
     clickAudio.play();
     abrirLoja();
@@ -728,7 +692,6 @@ botoesComprar.forEach((botao) => {
     });
 });
 
-// Eventos dos mini games
 botaoMiniGames.addEventListener("click", () => {
     clickAudio.play();
     abrirMiniGames();
@@ -738,13 +701,11 @@ botaoSairMiniGames.addEventListener("click", () => {
     fecharMiniGames();
 });
 
-// Eventos do Jogo da Velha
 reiniciarJogoVelha.addEventListener("click", () => {
     clickAudio.play();
     iniciarJogoDaVelha();
 });
 
-// Lógica para adicionar o container de acessórios dinamicamente
 window.addEventListener("load", function () {
     const tamagotchiContainer = document.querySelector(".tamagotchi-container");
     const acessoriosContainer = document.createElement("div");
@@ -757,5 +718,5 @@ window.addEventListener("load", function () {
 });
 
 // ===== INICIALIZAÇÃO DO JOGO =====
-backgroundAudio.play();
+carregarConfiguracoesDeAudio();
 carregarDados();
