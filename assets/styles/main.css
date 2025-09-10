@@ -18,11 +18,9 @@
   --cor-botoes: #bb5bd3;
   --cor-botoes-hover: #d979f1;
   --linha: 2px solid #bb5bd3;
-  --cor-botao-sair: #b60c00;
-  --cor-botao-sair-hover: rgba(189, 24, 24, 0.5490196078);
+  --cor-botao-sair: #d30808;
+  --cor-botao-sair-hover: #d30808ce;
   --cor-de-fundo-menu: #bb5bd3;
-  --cor-botao: #4caf50;
-  --cor-botao-hover: #45a049;
 }
 
 .dark-mode {
@@ -37,8 +35,6 @@
   --cor-botoes-hover: #600c75;
   --linha: 2px solid #8513a1;
   --cor-de-fundo-menu: #8513a1;
-  --cor-botao: #388e3c;
-  --cor-botao-hover: #2e7d32;
 }
 
 body {
@@ -59,13 +55,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 300px;
-  max-width: 500px;
+  width: 500px;
   border-radius: 30px;
   padding: 2rem;
   gap: 1rem;
   background-color: var(--cor-principal);
-  border: 2px solid var(--cor-borda);
+  border: 8px solid var(--cor-borda);
   box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -83,18 +78,69 @@ body {
   font-weight: bold;
 }
 
-.container-tema {
-  position: absolute;
-  top: 1%;
-  right: 1%;
+.container-tema .container-config{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 1;
 }
-.container-tema #botao-tema {
+
+.container-tema{
+  position: absolute;
+  top: 1%;
+  right: 1%;
+}
+
+.container-config{
+  position: absolute;
+  top: 1%;
+  left: 1%;
+}
+
+#botao-tema , #botao-config{
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
+  font-weight: bold;
+  border: none;
+  background: none;
+}
+
+.menu-config{
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: 1rem;
+  background-color: var(--cor-fundo);
+  border-radius: 10px;
+  font-weight: bold;
+  width: 140px;
+  height: 140px;
+  z-index: 1;
+}
+
+#botao-config-fechar{
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+#input-musica, #input-sons{
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--cor-principal);
+  border: none; 
+  border-radius: 10px;
+  cursor: pointer; 
+  width: 100%;
+}
+input[type="range"]::-moz-focus-outer {
+  border: 0;
 }
 
 .jogo-container,
@@ -122,17 +168,6 @@ body {
 
 #container-jogo {
   gap: 1rem;
-}
-
-#botao-tema {
-  font-size: 1.5rem;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  font-weight: bold;
-  border: none;
-  background: none;
 }
 
 .selecao-bichinhos {
@@ -296,18 +331,17 @@ body {
 
 .menu-lateral {
   position: absolute;
-  right: -70px;
-  top: 20%;
+  right: -40%;
+  top: 30%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  gap: 15px;
+  gap: 1rem;
   padding: 10px;
-  background-color: var(--cor-principal);
+  background-color: var(--cor-borda);
   border-radius: 15px;
-  box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
 .menu-lateral .botao-menu {
   background-color: var(--cor-de-fundo-menu);
@@ -352,7 +386,7 @@ body {
   padding-bottom: 14px;
 }
 
-.botao-sair {
+.botao-sair, #botao-config-fechar{
   background-color: var(--cor-botao-sair);
   color: var(--cor-texto);
   font-size: 1rem;
@@ -363,7 +397,7 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
-.botao-sair:hover {
+.botao-sair:hover, #botao-config-sair:hover {
   background-color: var(--cor-botao-sair-hover);
 }
 
@@ -399,7 +433,6 @@ body {
 }
 
 .botao-comprar {
-  background-color: var(--cor-botao);
   color: var(--cor-texto);
   border: none;
   border-radius: 20px;
@@ -436,10 +469,6 @@ body {
 }
 
 .mensagem {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   padding: 10px;
   border-radius: 5px;
   font-weight: bold;
@@ -454,15 +483,14 @@ body {
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
   gap: 5px;
-  background-color: #333;
-  border: 5px solid #333;
   margin: 20px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 #jogo-da-velha-board .celula {
   width: 100px;
   height: 100px;
-  background-color: #eee;
+  background-color: var(--cor-fundo);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -472,7 +500,7 @@ body {
   transition: background-color 0.2s ease-in-out;
 }
 #jogo-da-velha-board .celula:hover {
-  background-color: #ddd;
+  background-color: var(--cor-de-fundo-menu);
 }
 #jogo-da-velha-board .celula.x {
   color: #f44336;
@@ -489,8 +517,8 @@ body {
 }
 
 .botao-game-action {
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--cor-botoes);
+  color: var(--cor-texto);
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -500,11 +528,12 @@ body {
   transition: background-color 0.3s;
 }
 .botao-game-action:hover {
-  background-color: #45a049;
+  background-color: var(--cor-botoes-hover);
 }
 
 @media screen and (max-width: 768px) {
   body {
+    width: 100%;
     height: 100%;
   }
   .container-principal,
@@ -515,20 +544,30 @@ body {
     height: 100%;
     border-radius: 0;
     box-shadow: none;
-    padding: 0.8rem;
     border: none;
   }
+  .container-principal{
+    padding: 10px;
+  }
+
   .loja-container,
   .mini-games-container {
     top: 0;
-    left: 0px;
+    left: 0;
   }
+
+  .menu-config{
+    width: 180px;
+    height: 200px;
+  }
+
   .menu-lateral {
     position: relative;
     flex-direction: row;
     right: 0;
     top: 0;
     transform: translateY(0);
+    background: none;
   }
   .acessorio-equipado.coroa-equipado, .acessorio-equipado.chapeu-cartola-equipado, .acessorio-equipado.chapeu-laco-equipado {
     top: 25%;

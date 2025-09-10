@@ -11,8 +11,27 @@
 
 <body>
     <main class="container-principal">
-        <!-- Botão para alternar entre temas claro/escuro -->
+        
+        <div class="container-config">
+            <!-- Botão para abrir configuração -->
+            <button type="button" id="botao-config">⚙️</button>
+            
+            <!-- Menu da configuração -->
+            <nav class="menu-config" id="menu-config" style=display:none>
+                <button type="button" id="botao-config-fechar">X</button>
+
+                <!-- Input para mudar volume da música e sons -->
+                <label for="musica">Música</label>
+                <input type="range" name="musica" id="input-musica">
+                
+                <label for="sons">Sons</label>
+                <input type="range" name="sons" id="input-sons">
+
+            </nav>
+        </div>
+        
         <div class="container-tema">
+            <!-- Botão para alternar entre temas claro/escuro -->
             <button type="button" id="botao-tema" aria-label="Alternar tema claro/escuro"></button>
         </div>
 
@@ -78,6 +97,8 @@
                         </div>
                     </div>
 
+                    <p id="mensagem" class="mensagem"></p>
+
                     <!-- Barras de status do bichinho -->
                     <div class="status-container">
                         <div class="status-item">
@@ -116,7 +137,7 @@
 
                     <button id="botao-reiniciar" class="botao-acao" style="display: none;"
                         aria-label="Reiniciar jogo">Reiniciar Jogo</button>
-                    <p id="mensagem" class="mensagem"></p>
+
 
                     <!-- Menu lateral com opções adicionais -->
                     <nav class="menu-lateral">
@@ -161,6 +182,7 @@
                         <h2>Mini Games</h2>
                         <button id="botao-sair-mini-games" class="botao-sair" aria-label="Fechar mini games">X</button>
                     </div>
+
                     <div class="games-container">
                         <div class="mini-game-card">
                             <h3>Jogo da Velha</h3>

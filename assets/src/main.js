@@ -1,11 +1,23 @@
 // ===== SELEÇÃO DE ELEMENTOS DO DOM =====
+
 const telaBoasVindas = document.getElementById("boas-vindas");
+
 const containerJogo = document.getElementById("container-jogo");
 const tamagotchiBichinho = document.querySelector(".tamagotchi-bichinho");
 const emojiBichinhoElemento = document.getElementById("emoji-bichinho");
+
 const opcoesBichinhos = document.querySelectorAll(".opcao-bichinho");
+
 const nomeBichinhoElemento = document.getElementById("nome-bichinho");
 const inputNome = document.getElementById("input-nome");
+
+const moedasElemento = document.getElementById("moedas");
+
+const mensagemElemento = document.getElementById("mensagem");
+
+// Elemento Tema
+const botaoTema = document.getElementById("botao-tema");
+const corpoDocumento = document.body;
 
 // Elementos de status
 const statusFome = document.querySelector(".status-progresso.fome");
@@ -21,35 +33,39 @@ const botaoMedicar = document.getElementById("botao-medicar");
 const botaoComecar = document.getElementById("botao-comecar");
 const botaoReiniciar = document.getElementById("botao-reiniciar");
 
-// Elementos de menu e loja
-const mensagemElemento = document.getElementById("mensagem");
+// Elementos de loja
 const containerLoja = document.getElementById("container-loja");
 const botaoLoja = document.getElementById("botao-loja");
 const botaoSairLoja = document.getElementById("botao-sair-loja");
+
+// Elemento MiniGames
 const containerMiniGames = document.getElementById("container-mini-games");
 const botaoMiniGames = document.getElementById("botao-mini-games");
 const botaoSairMiniGames = document.getElementById("botao-sair-mini-games");
-const botaoTema = document.getElementById("botao-tema");
-const corpoDocumento = document.body;
-const moedasElemento = document.getElementById("moedas");
 
-// ===== SELEÇÃO DE ELEMENTOS DO JOGO DA VELHA =====
+// Elemento Jogo da Velha
 const jogoDaVelhaBoard = document.getElementById("jogo-da-velha-board");
 const celulas = document.querySelectorAll("#jogo-da-velha-board .celula");
 const statusJogoVelha = document.getElementById("jogo-da-velha-status");
 const reiniciarJogoVelha = document.getElementById("reiniciar-jogo-velha");
 
-// ===== SELEÇÃO DE SONS =====
+// Elementos de configuração
+const containerConfig = document.getElementById("menu-config");
+const botaoConfig = document.getElementById("botao-config");
+const botaoConfigFechar = document.getElementById("botao-config-fechar")
+
+const sliderMusica = document.getElementById("input-musica");
+const sliderSons = document.getElementById("input-sons");
+
+// Elementos de Audio
 const backgroundAudio = new Audio("../../assets/sounds/funbgm032014(fun).wav");
-backgroundAudio.loop = true;
-backgroundAudio.volume = 0.04;
 
 const clickAudio = new Audio("../../assets/sounds/Menu Selection Click.wav");
-clickAudio.volume = 0.2;
+
 const cutAudio = new Audio("../../assets/sounds/zipclick.flac");
-cutAudio.volume = 0.2;
+
 const coinAudio = new Audio("../../assets/sounds/coinsplash.ogg");
-coinAudio.volume = 0.2;
+
 
 // ===== CONSTANTES E CONFIGURAÇÕES =====
 /**
@@ -241,6 +257,15 @@ function controlarVisibilidadeBotoes(visivel) {
     botoesContainer.style.display = visivel ? "flex" : "none";
 }
 
+// ===== FUNÇÕES CONFIG AÚDIO =====
+function abrirConfig(){
+    containerConfig.style.display="flex"
+}
+
+function fecharConfig(){
+    containerConfig.style.display = "none";
+}
+
 // ===== FUNÇÕES DE TEMAS =====
 function aplicarTemaSalvo() {
     const temaSalvo = localStorage.getItem('tema');
@@ -351,6 +376,8 @@ function atualizarBotoesLoja() {
         }
     });
 }
+
+
 
 function exibirMensagem(texto) {
     mensagemElemento.textContent = texto;
@@ -522,7 +549,32 @@ function darRecompensa() {
     exibirMensagem(`Você ganhou ${moedasGanhas} moedas!`);
 }
 
+// Configurações de Aúdio padrão
+
+backgroundAudio.loop = true;
+backgroundAudio.volume = 0.04;
+clickAudio.volume = 0.2;
+cutAudio.volume = 0.2;
+coinAudio.volume = 0.2;
+
 // ===== CONFIGURAÇÃO DE EVENT LISTENERS =====
+
+// Eventos de monitoramento de configurações de aúdio
+botaoConfig.addEventListener('click', abrirConfig);
+
+botaoConfigFechar.addEventListener('click', fecharConfig);
+
+sliderMusica.addEventListener('input',(evento) =>{
+    backgroundAudio.volume = evento.target.value;
+})
+
+sliderSons.addEventListener('input',(evento) =>{
+    clickAudio.volume = evento.target.value;
+    cutAudio.volume = evento.target.value;
+
+})
+
+// Eventos de monitoramento de Tema
 document.addEventListener('DOMContentLoaded', aplicarTemaSalvo);
 
 botaoTema.addEventListener('click', () => {
