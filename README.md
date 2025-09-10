@@ -1,4 +1,4 @@
-# Bicho-Virtual
+# Bichinho-Virtual
 (Substitua esta imagem por uma captura de tela do seu jogo)
 
 Um projeto de bichinho virtual interativo, desenvolvido com HTML, CSS e JavaScript. Cuide do seu bichinho alimentando-o, brincando com ele, limpando-o e medicando-o para mantê-lo feliz e saudável. Além disso, ganhe moedas em mini-games para personalizar seu pet com acessórios incríveis!
