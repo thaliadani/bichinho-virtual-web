@@ -11,11 +11,11 @@
 
 <body>
     <main class="container-principal">
-        
+
         <div class="container-config">
             <!-- Botão para abrir configuração -->
             <button type="button" id="botao-config">⚙️</button>
-            
+
             <!-- Menu da configuração -->
             <nav class="menu-config" id="menu-config" style=display:none>
                 <button type="button" id="botao-config-fechar">X</button>
@@ -23,13 +23,13 @@
                 <!-- Input para mudar volume da música e sons -->
                 <label for="musica">Música</label>
                 <input type="range" name="musica" id="input-musica">
-                
+
                 <label for="sons">Sons</label>
                 <input type="range" name="sons" id="input-sons">
 
             </nav>
         </div>
-        
+
         <div class="container-tema">
             <!-- Botão para alternar entre temas claro/escuro -->
             <button type="button" id="botao-tema" aria-label="Alternar tema claro/escuro"></button>
@@ -152,6 +152,7 @@
                         <h2>Loja de Acessórios</h2>
                         <button id="botao-sair-loja" class="botao-sair" aria-label="Fechar loja">X</button>
                     </div>
+                    
                     <div class="acessorios-container">
                         <div class="acessorio-item" data-acessorio="coroa">
                             <div class="acessorio-emoji">👑</div>
@@ -178,7 +179,7 @@
 
                 <!-- Área de mini games (inicialmente oculta) -->
                 <div id="container-mini-games" class="mini-games-container" style="display: none;">
-                    <div class="loja-header">
+                    <div class="mini-games-header">
                         <h2>Mini Games</h2>
                         <button id="botao-sair-mini-games" class="botao-sair" aria-label="Fechar mini games">X</button>
                     </div>

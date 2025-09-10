@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    cursor: default;
+}
+
+:root {
+    --cor-fundo: #f0f0f0;
+    --cor-principal: #ffffff;
+    --cor-texto: #333333;
+    --cor-borda: #cccccc;
+    --cor-bichinho-hover: #bb5bd3;
+    --cor-fundo-bichinho-selecionado: rgba(187, 91, 211, 0.2470588235);
+    --cor-borda-bichinho-selecionado: #bb5bd3;
+    --cor-botoes: #bb5bd3;
+    --cor-botoes-hover: #d979f1;
+    --linha: 2px solid #bb5bd3;
+    --cor-botao-sair: #d30808;
+    --cor-botao-sair-hover: #d30808ce;
+    --cor-de-fundo-menu: #bb5bd3; 
+    
+    --sb-track-color: #cccccc;
+    --sb-thumb-color: #bb5bd3;
+}
+
+.dark-mode {
+    --cor-fundo: #1a1a1a;
+    --cor-principal: #2c2c2c;
+    --cor-texto: #f0f0f0;
+    --cor-borda: #444444;
+    --cor-bichinho-hover: #8513a1;
+    --cor-fundo-bichinho-selecionado: rgba(133, 19, 161, 0.1725490196);
+    --cor-borda-bichinho-selecionado: #8513a1;
+    --cor-botoes: #8513a1;
+    --cor-botoes-hover: #600c75;
+    --linha: 2px solid #8513a1;
+    --cor-de-fundo-menu: #8513a1;
+
+    --sb-track-color: #444444;
+    --sb-thumb-color: #8513a1;
+}
+
+/* ScrollBar */
+
+*::-webkit-scrollbar {
+    width: 1rem;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 10px;
+
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    * {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}

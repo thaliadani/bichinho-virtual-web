@@ -1,41 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  cursor: default;
-}
-
-:root {
-  --cor-fundo: #f0f0f0;
-  --cor-principal: #ffffff;
-  --cor-texto: #333333;
-  --cor-borda: #cccccc;
-  --cor-bichinho-hover: #bb5bd3;
-  --cor-fundo-bichinho-selecionado: rgba(187, 91, 211, 0.2470588235);
-  --cor-borda-bichinho-selecionado: #bb5bd3;
-  --cor-botoes: #bb5bd3;
-  --cor-botoes-hover: #d979f1;
-  --linha: 2px solid #bb5bd3;
-  --cor-botao-sair: #d30808;
-  --cor-botao-sair-hover: #d30808ce;
-  --cor-de-fundo-menu: #bb5bd3;
-}
-
-.dark-mode {
-  --cor-fundo: #1a1a1a;
-  --cor-principal: #2c2c2c;
-  --cor-texto: #f0f0f0;
-  --cor-borda: #444444;
-  --cor-bichinho-hover: #8513a1;
-  --cor-fundo-bichinho-selecionado: rgba(133, 19, 161, 0.1725490196);
-  --cor-borda-bichinho-selecionado: #8513a1;
-  --cor-botoes: #8513a1;
-  --cor-botoes-hover: #600c75;
-  --linha: 2px solid #8513a1;
-  --cor-de-fundo-menu: #8513a1;
-}
+@import url(./_global.css);
 
 body {
   display: flex;
@@ -64,21 +27,25 @@ body {
   box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
+
 .container-principal h1 {
   font-size: 2rem;
 }
+
 .container-principal h2 {
   font-size: 1.5rem;
 }
+
 .container-principal p,
 .container-principal span {
   font-size: 1.2rem;
 }
+
 .container-principal span {
   font-weight: bold;
 }
 
-.container-tema .container-config{
+.container-tema .container-config {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,19 +53,20 @@ body {
   z-index: 1;
 }
 
-.container-tema{
+.container-tema {
   position: absolute;
-  top: 1%;
-  right: 1%;
+  top: 2%;
+  right: 4%;
 }
 
-.container-config{
+.container-config {
   position: absolute;
-  top: 1%;
-  left: 1%;
+  top: 2%;
+  left: 4%;
 }
 
-#botao-tema , #botao-config{
+#botao-tema,
+#botao-config {
   font-size: 1.5rem;
   border-radius: 50%;
   width: 50px;
@@ -109,7 +77,7 @@ body {
   background: none;
 }
 
-.menu-config{
+.menu-config {
   position: absolute;
   flex-direction: column;
   align-items: center;
@@ -124,21 +92,23 @@ body {
   z-index: 1;
 }
 
-#botao-config-fechar{
+#botao-config-fechar {
   position: absolute;
   top: 5%;
   right: 5%;
 }
 
-#input-musica, #input-sons{
+#input-musica,
+#input-sons {
   -webkit-appearance: none;
   appearance: none;
   background: var(--cor-principal);
-  border: none; 
+  border: none;
   border-radius: 10px;
-  cursor: pointer; 
+  cursor: pointer;
   width: 100%;
 }
+
 input[type="range"]::-moz-focus-outer {
   border: 0;
 }
@@ -156,6 +126,7 @@ input[type="range"]::-moz-focus-outer {
 .tela-inicial {
   gap: 1rem;
   text-align: center;
+  padding-top: 2rem;
 }
 
 .jogo-container {
@@ -178,6 +149,7 @@ input[type="range"]::-moz-focus-outer {
   gap: 0.8rem;
   margin-bottom: 1rem;
 }
+
 .selecao-bichinhos .opcao-bichinho {
   display: flex;
   flex-direction: column;
@@ -189,10 +161,12 @@ input[type="range"]::-moz-focus-outer {
   border: 2px solid transparent;
   width: 120px;
 }
+
 .selecao-bichinhos .opcao-bichinho:hover {
   background-color: var(--cor-bichinho-hover);
   transform: scale(1.05);
 }
+
 .selecao-bichinhos .opcao-bichinho.selecionado {
   border-color: var(--cor-borda-bichinho-selecionado);
   background-color: var(--cor-fundo-bichinho-selecionado);
@@ -203,6 +177,7 @@ input[type="range"]::-moz-focus-outer {
   margin-bottom: 5px;
   cursor: pointer;
 }
+
 .emoji-bichinho-grande {
   font-size: 6rem;
 }
@@ -216,10 +191,12 @@ input[type="range"]::-moz-focus-outer {
   margin-bottom: 10px;
   cursor: text;
 }
+
 #input-nome.input-erro::-moz-placeholder {
   color: #bb0707;
   font-weight: 600;
 }
+
 #input-nome.input-erro::placeholder {
   color: #bb0707;
   font-weight: 600;
@@ -238,12 +215,15 @@ input[type="range"]::-moz-focus-outer {
   transition: background-color 0.3s ease;
   box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
+
 .botao-acao:hover {
   background-color: var(--cor-botoes-hover);
 }
+
 .botao-acao:active {
   box-shadow: inset 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
+
 .botao-acao:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -264,6 +244,7 @@ input[type="range"]::-moz-focus-outer {
   transition: transform 0.5s ease-in-out;
   width: 100%;
 }
+
 .tamagotchi-container .tamagotchi-bichinho {
   display: flex;
   justify-content: center;
@@ -282,6 +263,7 @@ input[type="range"]::-moz-focus-outer {
   width: 100%;
   gap: 0.5rem;
 }
+
 .status-container .status-item {
   display: flex;
   align-items: center;
@@ -289,9 +271,11 @@ input[type="range"]::-moz-focus-outer {
   margin-bottom: 1rem;
   width: 100%;
 }
+
 .status-container .status-label {
   width: 110px;
 }
+
 .status-container .status-barra {
   width: 200px;
   background-color: var(--cor-fundo);
@@ -300,6 +284,7 @@ input[type="range"]::-moz-focus-outer {
   height: 15px;
   margin-left: 10px;
 }
+
 .status-container .status-progresso {
   height: 100%;
   width: 100%;
@@ -343,6 +328,7 @@ input[type="range"]::-moz-focus-outer {
   background-color: var(--cor-borda);
   border-radius: 15px;
 }
+
 .menu-lateral .botao-menu {
   background-color: var(--cor-de-fundo-menu);
   border: 2px solid var(--cor-borda);
@@ -353,6 +339,7 @@ input[type="range"]::-moz-focus-outer {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .menu-lateral .botao-menu:hover {
   background-color: var(--cor-botoes-hover);
   transform: scale(1.05);
@@ -374,10 +361,10 @@ input[type="range"]::-moz-focus-outer {
   align-items: center;
   justify-content: center;
   width: 400px;
-  height: 500px;
+  height: 400px;
 }
 
-.loja-header {
+.loja-header , .mini-games-header{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -386,7 +373,8 @@ input[type="range"]::-moz-focus-outer {
   padding-bottom: 14px;
 }
 
-.botao-sair, #botao-config-fechar{
+.botao-sair,
+#botao-config-fechar {
   background-color: var(--cor-botao-sair);
   color: var(--cor-texto);
   font-size: 1rem;
@@ -397,17 +385,22 @@ input[type="range"]::-moz-focus-outer {
   cursor: pointer;
   font-weight: bold;
 }
-.botao-sair:hover, #botao-config-sair:hover {
+
+.botao-sair:hover,
+#botao-config-sair:hover {
   background-color: var(--cor-botao-sair-hover);
 }
 
-.acessorios-container {
+.acessorios-container , .games-container{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   overflow-y: auto;
   padding: 10px;
+  text-align: center;
+  margin-top: 1rem;
 }
+
 .acessorios-container .acessorio-item {
   display: flex;
   flex-direction: column;
@@ -419,14 +412,17 @@ input[type="range"]::-moz-focus-outer {
   transition: all 0.3s ease;
   text-align: center;
 }
+
 .acessorios-container .acessorio-item:hover {
   transform: translateY(-5px);
   box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
+
 .acessorios-container .acessorio-item .acessorio-emoji {
   margin-bottom: 10px;
   font-size: 2.4rem;
 }
+
 .acessorios-container .acessorio-item span {
   margin-bottom: 10px;
   font-size: 1rem;
@@ -440,6 +436,7 @@ input[type="range"]::-moz-focus-outer {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .botao-comprar:hover {
   background-color: var(--cor-botao-hover);
 }
@@ -461,21 +458,22 @@ input[type="range"]::-moz-focus-outer {
   position: absolute;
   font-size: 2rem;
 }
-.acessorio-equipado.coroa-equipado, .acessorio-equipado.chapeu-cartola-equipado, .acessorio-equipado.chapeu-laco-equipado {
+
+.acessorio-equipado.coroa-equipado,
+.acessorio-equipado.chapeu-cartola-equipado,
+.acessorio-equipado.chapeu-laco-equipado {
   top: 15%;
 }
+
 .acessorio-equipado.laco-equipado {
   top: 20%;
 }
 
-.mensagem {
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  color: var(--cor-texto);
-  font-size: 1.2em;
-  text-align: center;
-  width: 100%;
+#jogo-da-velha-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #jogo-da-velha-board {
@@ -485,6 +483,8 @@ input[type="range"]::-moz-focus-outer {
   gap: 5px;
   margin: 20px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: .8rem;
+  background-color: var(--cor-borda);
 }
 
 #jogo-da-velha-board .celula {
@@ -499,14 +499,13 @@ input[type="range"]::-moz-focus-outer {
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
+
 #jogo-da-velha-board .celula:hover {
   background-color: var(--cor-de-fundo-menu);
 }
-#jogo-da-velha-board .celula.x {
-  color: #f44336;
-}
-#jogo-da-velha-board .celula.o {
-  color: #2196f3;
+
+#jogo-da-velha-board .celula.x, #jogo-da-velha-board .celula.o{
+  color: var(--cor-texto);
 }
 
 .status-jogo {
@@ -527,8 +526,19 @@ input[type="range"]::-moz-focus-outer {
   margin-top: 15px;
   transition: background-color 0.3s;
 }
+
 .botao-game-action:hover {
   background-color: var(--cor-botoes-hover);
+}
+
+.mensagem {
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: var(--cor-texto);
+  font-size: 1.2em;
+  text-align: center;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -536,6 +546,7 @@ input[type="range"]::-moz-focus-outer {
     width: 100%;
     height: 100%;
   }
+
   .container-principal,
   .tela-inicial,
   .loja-container,
@@ -545,7 +556,7 @@ input[type="range"]::-moz-focus-outer {
     border: none;
   }
 
-  .container-principal{
+  .container-principal {
     width: 100%;
     height: 100vh;
   }
@@ -554,25 +565,26 @@ input[type="range"]::-moz-focus-outer {
   .mini-games-container {
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
   }
 
-  .menu-config{
+  .menu-config {
     width: 180px;
     height: 200px;
   }
 
   .menu-lateral {
-    position: relative;
-    flex-direction: row;
-    right: 0;
-    top: 0;
-    transform: translateY(0);
     background: none;
   }
-  .acessorio-equipado.coroa-equipado, .acessorio-equipado.chapeu-cartola-equipado, .acessorio-equipado.chapeu-laco-equipado {
+
+  .acessorio-equipado.coroa-equipado,
+  .acessorio-equipado.chapeu-cartola-equipado,
+  .acessorio-equipado.chapeu-laco-equipado {
     top: 25%;
   }
+
   .acessorio-equipado.laco-equipado {
     top: 20%;
   }
-}/*# sourceMappingURL=main.css.map */
+}
