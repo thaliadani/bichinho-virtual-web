@@ -608,8 +608,7 @@ input[type="range"]::-moz-focus-outer {
   .loja-container,
   .mini-games-container {
     top: 0;
-    left: 0;
-    height:100vh; 
+    left: 0; 
   }
 
   .menu-config {
