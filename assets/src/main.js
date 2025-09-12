@@ -92,7 +92,6 @@ const condicoesDeVitoria = [
     [0, 4, 8], [2, 4, 6]
 ];
 
-
 // ===== VARIÁVEIS GLOBAIS DO JOGO =====
 let meuBichinho = {
     nome: "Bichinho",
@@ -373,7 +372,6 @@ function exibirMensagem(texto) {
     }, 3000);
 }
 
-
 // ===== FUNÇÕES DE MINI GAMES =====
 function abrirMiniGames() {
     containerMiniGames.style.display = "flex";
@@ -383,7 +381,6 @@ function abrirMiniGames() {
 function fecharMiniGames() {
     containerMiniGames.style.display = "none";
 }
-
 
 // ===== LÓGICA DO JOGO DA VELHA =====
 function iniciarJogoDaVelha() {
