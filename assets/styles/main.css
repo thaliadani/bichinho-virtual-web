@@ -391,7 +391,7 @@ input[type="range"]::-moz-focus-outer {
 .mini-games-container {
   position: absolute;
   top: 0;
-  left: 450px;
+  left: 120%;
   background-color: var(--cor-principal);
   z-index: 100;
   padding: 20px;
