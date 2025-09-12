@@ -12,6 +12,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   user-select: none;
   cursor: default;
+overflow-x:hidden;
 }
 
 body[data-status="loading"] #container-jogo {
