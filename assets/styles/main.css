@@ -590,7 +590,7 @@ input[type="range"]::-moz-focus-outer {
 }
 
 @media screen and (max-width: 768px) {
-  .container-principal,
+  .conteudo-jogo,
   .tela-inicial,
   .loja-container,
   .mini-games-container {
