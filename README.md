@@ -1,4 +1,4 @@
-# Bichinho-Virtual
+# Bichinho Virtual
 
 <img width="1366" height="632" alt="screencapture-127-0-0-1-5501-2025-09-12-09_36_15" src="https://github.com/user-attachments/assets/a6b9b535-49bf-4ece-900a-502a8e60169d" />
 
