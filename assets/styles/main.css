@@ -5,8 +5,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -56,6 +56,7 @@ body[data-status="loading"] #boas-vindas {
   align-items: center;
   justify-content: center;
   width: 500px;
+  height: 100%;
   border-radius: 30px;
   padding: 2rem;
   gap: 1rem;
