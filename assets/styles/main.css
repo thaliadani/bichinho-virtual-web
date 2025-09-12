@@ -10,7 +10,7 @@ body {
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
   transition: background-color 0.3s ease, color 0.3s ease;
-overflow-y:hidden;
+overflow-x:hidden;
 }
 
 body[data-status="loading"] #container-jogo {
