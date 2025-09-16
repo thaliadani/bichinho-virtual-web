@@ -46,12 +46,21 @@ const botoesComprar = document.querySelectorAll(".botao-comprar");
 const containerMiniGames = document.getElementById("container-mini-games");
 const botaoMiniGames = document.getElementById("botao-mini-games");
 const botaoSairMiniGames = document.getElementById("botao-sair-mini-games");
+const containerOpcoesMiniGames = document.getElementById("opcoes-mini-games");
 
 // Elementos do Jogo da Velha
+const botaoJogarJogoDaVelha = document.getElementById("botao-jogar-jogo-da-velha");
+const botaoVoltarJogoDaVelha = document.getElementById("botao-voltar-jogo-da-velha");
+const containerJogoDaVelha = document.getElementById("jogo-da-velha-container");
 const jogoDaVelhaBoard = document.getElementById("jogo-da-velha-board");
 const celulas = document.querySelectorAll("#jogo-da-velha-board .celula");
 const statusJogoVelha = document.getElementById("jogo-da-velha-status");
 const reiniciarJogoVelha = document.getElementById("reiniciar-jogo-velha");
+
+//Elementos do Jogo da Memoria
+const botaoJogarJogoDaMemoria =document.getElementById("botao-jogar-jogo-da-memoria");
+const botaoVoltarJogoDaMemoria = document.getElementById("botao-voltar-jogo-da-memoria");
+const containerJogoDaMemoria= document.getElementById("jogo-da-memoria-container");
 
 // Elementos de configuração
 const containerConfig = document.getElementById("menu-config");
@@ -697,6 +706,30 @@ botaoSairMiniGames.addEventListener("click", () => {
     cutAudio.play();
     fecharMiniGames();
 });
+
+botaoVoltarJogoDaVelha.addEventListener("click",()=>{
+    clickAudio.play();
+    containerJogoDaVelha.style.display = "none";
+    containerOpcoesMiniGames.style.display="flex";
+})
+
+botaoJogarJogoDaVelha.addEventListener("click",()=>{
+    clickAudio.play();
+    containerJogoDaVelha.style.display = "flex";
+    containerOpcoesMiniGames.style.display="none";
+})
+
+botaoVoltarJogoDaMemoria.addEventListener("click",()=>{
+    clickAudio.play();
+    containerJogoDaMemoria.style.display = "none";
+    containerOpcoesMiniGames.style.display="flex";
+})
+
+botaoJogarJogoDaMemoria.addEventListener("click",()=>{
+    clickAudio.play();
+    containerJogoDaMemoria.style.display = "flex";
+    containerOpcoesMiniGames.style.display="none";
+})
 
 reiniciarJogoVelha.addEventListener("click", () => {
     clickAudio.play();

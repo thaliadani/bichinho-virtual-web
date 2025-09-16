@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link rel="shortcut icon" href="./assets/icon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="./assets/images/icon/favicon.svg" type="image/svg+xml">
     <title>Meu Bichinho Virtual</title>
     <link rel="stylesheet" href="./assets/styles/main.css">
 </head>
@@ -189,25 +189,49 @@
                         <button id="botao-sair-mini-games" class="botao-sair" aria-label="Fechar mini games">X</button>
                     </div>
 
-                    <div class="games-container">
-                        <div class="mini-game-card">
+                    <div id="opcoes-mini-games" class="opcoes-mini-games">
+                        <div id="opcao-mini-game">
                             <h3>Jogo da Velha</h3>
-                            <div id="jogo-da-velha-container">
-                                <div id="jogo-da-velha-board">
-                                    <div class="celula" data-index="0"></div>
-                                    <div class="celula" data-index="1"></div>
-                                    <div class="celula" data-index="2"></div>
-                                    <div class="celula" data-index="3"></div>
-                                    <div class="celula" data-index="4"></div>
-                                    <div class="celula" data-index="5"></div>
-                                    <div class="celula" data-index="6"></div>
-                                    <div class="celula" data-index="7"></div>
-                                    <div class="celula" data-index="8"></div>
-                                </div>
-                                <div id="jogo-da-velha-status" class="status-jogo"></div>
-                                <button id="reiniciar-jogo-velha" class="botao-game-action">Reiniciar Jogo</button>
-                            </div>
+                            <figure>
+                                <img src="./assets/images/jogo-da-velha.png" alt="jogo da velha">
+                            </figure>
+                            <button class="botao-acao" id="botao-jogar-jogo-da-velha">Jogar</button>
                         </div>
+                        <div id="opcao-mini-game">
+                            <h3>Jogo da Memória</h3>
+                            <figure>
+                                <img src="" alt="jogo da memoria">
+                            </figure>
+                            <button class="botao-acao" id="botao-jogar-jogo-da-memoria">Jogar</button>
+                        </div>
+
+                    </div>
+
+                    <div class="games-container">
+
+                        <div id="jogo-da-velha-container" style="display: none;">
+                            <button class="botao-acao" id="botao-voltar-jogo-da-velha">Voltar</button>
+                            <h3>Jogo da Velha</h3>
+                            <div id="jogo-da-velha-board">
+                                <div class="celula" data-index="0"></div>
+                                <div class="celula" data-index="1"></div>
+                                <div class="celula" data-index="2"></div>
+                                <div class="celula" data-index="3"></div>
+                                <div class="celula" data-index="4"></div>
+                                <div class="celula" data-index="5"></div>
+                                <div class="celula" data-index="6"></div>
+                                <div class="celula" data-index="7"></div>
+                                <div class="celula" data-index="8"></div>
+                            </div>
+                            <div id="jogo-da-velha-status" class="status-jogo"></div>
+                            <button id="reiniciar-jogo-velha" class="botao-game-action">Reiniciar Jogo</button>
+                        </div>
+
+                        <div id="jogo-da-memoria-container" style="display: none;">
+                            <button class="botao-acao" id="botao-voltar-jogo-da-memoria">Voltar</button>
+                            <h3>Jogo da Memória</h3>
+                        </div>
+
                     </div>
                 </div>
             </div>
