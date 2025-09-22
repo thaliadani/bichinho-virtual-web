@@ -433,7 +433,7 @@ input[type="range"]::-moz-focus-outer {
   background-color: var(--cor-botao-sair-hover);
 }
 
-.opcoes-mini-games,
+.mini-games-container,
 .acessorios-container{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -455,8 +455,13 @@ input[type="range"]::-moz-focus-outer {
   font-size: 1rem;
 }
 
+.opcoes-mini-games{
+  display: flex;
+  flex-direction: column;
+}
+
 .acessorios-container .acessorio-item,
-#opcoes-mini-games #opcao-mini-game {
+.opcoes-mini-games #opcao-mini-game {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -480,7 +485,7 @@ input[type="range"]::-moz-focus-outer {
   font-size: 1rem;
 }
 
-.acessorios-container .acessorio-item:hover, #opcoes-mini-games #opcao-mini-game:hover {
+.acessorios-container .acessorio-item:hover, .opcoes-mini-games #opcao-mini-game:hover {
   transform: translateY(-5px);
   box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
@@ -536,7 +541,7 @@ input[type="range"]::-moz-focus-outer {
   top: 20%;
 }
 
-#jogo-da-velha-container {
+#jogo-da-velha-container, #jogo-da-memoria-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -599,6 +604,33 @@ input[type="range"]::-moz-focus-outer {
 
 .botao-game-action:hover {
   background-color: var(--cor-botoes-hover);
+}
+
+.jogo-da-memoria-cartas{
+  width: 640px;
+  height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.jogo-da-memoria-carta {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+
+.frente-carta,
+.atras-carta {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: #1C7CCC;
 }
 
 .mensagem {
