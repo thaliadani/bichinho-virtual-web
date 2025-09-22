@@ -52,15 +52,21 @@ const containerOpcoesMiniGames = document.getElementById("opcoes-mini-games");
 const botaoJogarJogoDaVelha = document.getElementById("botao-jogar-jogo-da-velha");
 const botaoVoltarJogoDaVelha = document.getElementById("botao-voltar-jogo-da-velha");
 const containerJogoDaVelha = document.getElementById("jogo-da-velha-container");
+
 const jogoDaVelhaBoard = document.getElementById("jogo-da-velha-board");
 const celulas = document.querySelectorAll("#jogo-da-velha-board .celula");
 const statusJogoVelha = document.getElementById("jogo-da-velha-status");
 const reiniciarJogoVelha = document.getElementById("reiniciar-jogo-velha");
 
 //Elementos do Jogo da Memoria
-const botaoJogarJogoDaMemoria =document.getElementById("botao-jogar-jogo-da-memoria");
+const botaoJogarJogoDaMemoria = document.getElementById("botao-jogar-jogo-da-memoria");
 const botaoVoltarJogoDaMemoria = document.getElementById("botao-voltar-jogo-da-memoria");
-const containerJogoDaMemoria= document.getElementById("jogo-da-memoria-container");
+const containerJogoDaMemoria = document.getElementById("jogo-da-memoria-container");
+
+const cartas = document.querySelectorAll('.jogo-da-memoria-carta');
+let cartaFlipada = false;
+let primeiraCarta, segundaCarta;
+let bloquearBoard = false;
 
 // Elementos de configuração
 const containerConfig = document.getElementById("menu-config");
@@ -516,6 +522,44 @@ function darRecompensa() {
     exibirMensagem(`Você ganhou ${moedasGanhas} moedas!`);
 }
 
+function fliparCarta() {
+    if(bloquearBoard) return;
+    if (this === primeiraCarta) return;
+    this.classList.add('flip');
+
+    if (!cartaFlipada) {
+        cartaFlipada = true;
+        primeiraCarta = this;
+        return;
+    }
+
+    segundaCarta = this;
+    cartaFlipada = false;
+
+    checarIgualdade();
+}
+
+function checarIgualdade() {
+    let eIgual = primeiraCarta.dataset.framework === segundaCarta.dataset.framework;
+    eIgual ? desativarCartas() : naoFliparCarta();
+}
+
+function desativarCartas() {
+    primeiraCarta.removeEventListener('click', fliparCarta);
+    segundaCarta.removeEventListener('click', fliparCarta);
+}
+
+function naoFliparCarta() {
+    bloquearBoard = true;
+    setTimeout(() => {
+        primeiraCarta.classList.remove('flip');
+        segundaCarta.classList.remove('flip');
+
+        bloquearBoard= false;
+    }, 1500);
+
+}
+
 /**
  * Salva as configurações de volume no Local Storage.
  */
@@ -707,34 +751,36 @@ botaoSairMiniGames.addEventListener("click", () => {
     fecharMiniGames();
 });
 
-botaoVoltarJogoDaVelha.addEventListener("click",()=>{
+botaoVoltarJogoDaVelha.addEventListener("click", () => {
     clickAudio.play();
     containerJogoDaVelha.style.display = "none";
-    containerOpcoesMiniGames.style.display="flex";
+    containerOpcoesMiniGames.style.display = "flex";
 })
 
-botaoJogarJogoDaVelha.addEventListener("click",()=>{
+botaoJogarJogoDaVelha.addEventListener("click", () => {
     clickAudio.play();
     containerJogoDaVelha.style.display = "flex";
-    containerOpcoesMiniGames.style.display="none";
-})
-
-botaoVoltarJogoDaMemoria.addEventListener("click",()=>{
-    clickAudio.play();
-    containerJogoDaMemoria.style.display = "none";
-    containerOpcoesMiniGames.style.display="flex";
-})
-
-botaoJogarJogoDaMemoria.addEventListener("click",()=>{
-    clickAudio.play();
-    containerJogoDaMemoria.style.display = "flex";
-    containerOpcoesMiniGames.style.display="none";
+    containerOpcoesMiniGames.style.display = "none";
 })
 
 reiniciarJogoVelha.addEventListener("click", () => {
     clickAudio.play();
     iniciarJogoDaVelha();
 });
+
+botaoVoltarJogoDaMemoria.addEventListener("click", () => {
+    clickAudio.play();
+    containerJogoDaMemoria.style.display = "none";
+    containerOpcoesMiniGames.style.display = "flex";
+})
+
+botaoJogarJogoDaMemoria.addEventListener("click", () => {
+    clickAudio.play();
+    containerJogoDaMemoria.style.display = "flex";
+    containerOpcoesMiniGames.style.display = "none";
+})
+
+cartas.forEach(carta => carta.addEventListener('click', fliparCarta));
 
 window.addEventListener("load", function () {
     const tamagotchiContainer = document.querySelector(".tamagotchi-container");
