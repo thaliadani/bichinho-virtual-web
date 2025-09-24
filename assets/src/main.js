@@ -754,7 +754,7 @@ botaoSairMiniGames.addEventListener("click", () => {
 botaoVoltarJogoDaVelha.addEventListener("click", () => {
     clickAudio.play();
     containerJogoDaVelha.style.display = "none";
-    containerOpcoesMiniGames.style.display = "flex";
+    containerOpcoesMiniGames.style.display = "grid";
 })
 
 botaoJogarJogoDaVelha.addEventListener("click", () => {
@@ -771,7 +771,7 @@ reiniciarJogoVelha.addEventListener("click", () => {
 botaoVoltarJogoDaMemoria.addEventListener("click", () => {
     clickAudio.play();
     containerJogoDaMemoria.style.display = "none";
-    containerOpcoesMiniGames.style.display = "flex";
+    containerOpcoesMiniGames.style.display = "grid";
 })
 
 botaoJogarJogoDaMemoria.addEventListener("click", () => {
