@@ -1,0 +1,20 @@
+{
+    "name": "Bichinho Virtual",
+    "short_name": "Bichinho Virtual",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#000",
+    "icons": [
+        {
+            "src": "./assets/images/icon/favicon.svg",
+            "sizes": "192x192",
+            "type": "image/svg"
+        },
+        {
+            "src": "./assets/images/icon/favicon.svg",
+            "sizes": "512x512",
+            "type": "image/svg"
+        }
+    ]
+}
