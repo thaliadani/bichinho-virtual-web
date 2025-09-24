@@ -63,10 +63,11 @@ const botaoJogarJogoDaMemoria = document.getElementById("botao-jogar-jogo-da-mem
 const botaoVoltarJogoDaMemoria = document.getElementById("botao-voltar-jogo-da-memoria");
 const containerJogoDaMemoria = document.getElementById("jogo-da-memoria-container");
 
-const cartas = document.querySelectorAll('.jogo-da-memoria-carta');
-let cartaFlipada = false;
-let primeiraCarta, segundaCarta;
-let bloquearBoard = false;
+const jogoDaMemoriaCartas = document.getElementById("jogo-da-memoria-board");
+
+const statusJogoMemoria = document.getElementById("jogo-da-memoria-status");
+
+const botaoReiniciarJogoMemoria = document.getElementById("reiniciar-jogo-memoria");
 
 // Elementos de configuração
 const containerConfig = document.getElementById("menu-config");
@@ -522,43 +523,65 @@ function darRecompensa() {
     exibirMensagem(`Você ganhou ${moedasGanhas} moedas!`);
 }
 
-function fliparCarta() {
-    if(bloquearBoard) return;
-    if (this === primeiraCarta) return;
-    this.classList.add('flip');
+// ===== LÓGICA DO JOGO DA MEMÓRIA =====
+const imagensMemoria = ["🐶", "🐱", "🐰", "🐼", "🐮", "🐸", "🐹", "🐷"];
 
-    if (!cartaFlipada) {
-        cartaFlipada = true;
-        primeiraCarta = this;
-        return;
+let cartasEscolhidas = [];
+
+function iniciarJogoDaMemoria() {
+    cartasEscolhidas = [];
+    statusJogoMemoria.textContent = "Encontre os pares!";
+    botaoReiniciarJogoMemoria.style.display = "none";
+    jogoDaMemoriaCartas.innerHTML = "";
+    const cartasDuplicadas = [...imagensMemoria, ...imagensMemoria];
+    const cartasEmbaralhadas = cartasDuplicadas.sort(() => Math.random() - 0.5);
+    cartasEmbaralhadas.forEach((imagem, index) => {
+        const carta = document.createElement("div");
+        carta.classList.add("carta-memoria");
+        carta.setAttribute("data-index", index);
+        carta.setAttribute("data-imagem", imagem);
+        carta.textContent = "❓";
+        carta.addEventListener("click", lidarComClickMemoria);
+        jogoDaMemoriaCartas.appendChild(carta);
+    });
+}
+
+function lidarComClickMemoria(evento) {
+    const cartaClicada = evento.currentTarget;
+    const index = cartaClicada.getAttribute("data-index");
+    const imagem = cartaClicada.getAttribute("data-imagem");
+    if (cartasEscolhidas.length < 2 && !cartasEscolhidas.includes(cartaClicada) && cartaClicada.textContent === "❓") {
+        clickAudio.play();
+        cartaClicada.textContent = imagem;
+        cartasEscolhidas.push(cartaClicada);
+        if (cartasEscolhidas.length === 2) {
+            setTimeout(verificarPar, 1000);
+        }
     }
-
-    segundaCarta = this;
-    cartaFlipada = false;
-
-    checarIgualdade();
 }
 
-function checarIgualdade() {
-    let eIgual = primeiraCarta.dataset.framework === segundaCarta.dataset.framework;
-    eIgual ? desativarCartas() : naoFliparCarta();
+function verificarPar() {
+    const [carta1, carta2] = cartasEscolhidas;
+    if (carta1.getAttribute("data-imagem") === carta2.getAttribute("data-imagem")) {
+        coinAudio.play();
+        carta1.removeEventListener("click", lidarComClickMemoria);
+        carta2.removeEventListener("click", lidarComClickMemoria);
+        exibirMensagem("Par encontrado!");
+        if (document.querySelectorAll(".carta-memoria").length === document.querySelectorAll(".carta-memoria:not([data-encontrada])").length) {
+            statusJogoMemoria.textContent = "Você venceu! 🎉";
+            darRecompensa();
+            botaoReiniciarJogoMemoria.style.display = "block";
+        }
+    }
+    else {
+        cutAudio.play();
+        carta1.textContent = "❓";
+        carta2.textContent = "❓";
+    }
+    cartasEscolhidas = [];
 }
 
-function desativarCartas() {
-    primeiraCarta.removeEventListener('click', fliparCarta);
-    segundaCarta.removeEventListener('click', fliparCarta);
-}
-
-function naoFliparCarta() {
-    bloquearBoard = true;
-    setTimeout(() => {
-        primeiraCarta.classList.remove('flip');
-        segundaCarta.classList.remove('flip');
-
-        bloquearBoard= false;
-    }, 1500);
-
-}
+// ===== FUNÇÕES DE ÁUDIO E VOLUME =====
 
 /**
  * Salva as configurações de volume no Local Storage.
@@ -768,19 +791,23 @@ reiniciarJogoVelha.addEventListener("click", () => {
     iniciarJogoDaVelha();
 });
 
-botaoVoltarJogoDaMemoria.addEventListener("click", () => {
-    clickAudio.play();
-    containerJogoDaMemoria.style.display = "none";
-    containerOpcoesMiniGames.style.display = "grid";
-})
-
 botaoJogarJogoDaMemoria.addEventListener("click", () => {
     clickAudio.play();
     containerJogoDaMemoria.style.display = "flex";
     containerOpcoesMiniGames.style.display = "none";
-})
+    iniciarJogoDaMemoria();
+});
 
-cartas.forEach(carta => carta.addEventListener('click', fliparCarta));
+botaoVoltarJogoDaMemoria.addEventListener("click", () => {
+    clickAudio.play();
+    containerJogoDaMemoria.style.display = "none";
+    containerOpcoesMiniGames.style.display = "grid";
+});
+
+botaoReiniciarJogoMemoria.addEventListener("click", () => {
+    clickAudio.play();
+    iniciarJogoDaMemoria();
+});
 
 window.addEventListener("load", function () {
     const tamagotchiContainer = document.querySelector(".tamagotchi-container");

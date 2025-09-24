@@ -58,6 +58,7 @@ body[data-status="loading"] #boas-vindas {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   min-width: 500px;
   max-width: 500px;
   min-height: 100%;
@@ -356,7 +357,7 @@ input[type="range"]::-moz-focus-outer {
 
 .menu-lateral {
   position: absolute;
-  right: -16%;
+  right: -12%;
   top: 30%;
   transform: translateY(-50%);
   display: flex;
@@ -371,13 +372,14 @@ input[type="range"]::-moz-focus-outer {
 
 .menu-lateral .botao-menu {
   background-color: var(--cor-de-fundo-menu);
-  border: 2px solid var(--cor-borda);
+  border: none;
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  font-size: 1rem;
+  font-size: 1.4rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
 
 .menu-lateral .botao-menu:hover {
@@ -441,11 +443,12 @@ input[type="range"]::-moz-focus-outer {
 
 .games-container h3 {
   margin-top: 1.8rem;
+  font-size: 1.5rem;
 }
 
 .games-container .botao-acao {
   position: absolute;
-  top: 20%;
+  top: 15%;
   right: 5%;
   font-size: 1rem;
 }
@@ -575,6 +578,40 @@ input[type="range"]::-moz-focus-outer {
   color: var(--cor-texto);
 }
 
+#jogo-da-memoria-board {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+  gap: 10px;
+  margin: 20px auto;
+}
+
+#jogo-da-memoria-board .carta-memoria {
+  width: 100px;
+  height: 100px;
+  background-color: var(--cor-fundo);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.2s ease-in-out, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#jogo-da-memoria-board .carta-memoria:hover {
+  background-color: var(--cor-de-fundo-menu);
+  transform: scale(1.05);
+}
+
+#jogo-da-memoria-board .carta-memoria.virada {
+  background-color: var(--cor-principal);
+  cursor: default;
+  rotate: Y(180deg);
+}
+
 .status-jogo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -596,59 +633,6 @@ input[type="range"]::-moz-focus-outer {
 
 .botao-game-action:hover {
   background-color: var(--cor-botoes-hover);
-}
-
-.jogo-da-memoria-cartas {
-  width: 540px;
-  height: 540px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: .5rem;
-  perspective: 1000px;
-}
-
-.jogo-da-memoria-carta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: calc(25% - 10px);
-  height: calc(33.333% - 10px);
-  position: relative;
-  transform: scale(1);
-  transform-style: preserve-3d;
-  cursor: pointer;
-  transition: transform .5s;
-}
-
-.jogo-da-memoria-carta.flip {
-  transform: rotateY(180deg);
-}
-
-.jogo-da-memoria-carta:active {
-  transform: scale(0.97);
-  transition: transform .2s;
-}
-
-.frente-carta,
-.atras-carta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 20%;
-  border-radius: 5px;
-  background: var(--cor-fundo);
-  border: 1px solid var(--cor-borda);
-  backface-visibility: hidden;
-}
-
-.frente-carta {
-  transform: rotateY(180deg);
 }
 
 .mensagem {

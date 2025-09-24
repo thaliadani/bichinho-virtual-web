@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link rel="shortcut icon" href="./assets/images/icon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="./assets/images/icon.png" type="image/svg+xml">
     <title>Meu Bichinho Virtual</title>
-     <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <link rel="stylesheet" href="./assets/styles/main.css">
 </head>
 
@@ -194,7 +194,7 @@
                         <div id="opcao-mini-game">
                             <h3>Jogo da Velha</h3>
                             <figure>
-                                <img src="./assets/images/jogo-da-velha.png" alt="jogo da velha">
+                                <img src="./assets/images/mini-games-container/jogo-da-velha.png" alt="jogo da velha">
                             </figure>
                             <button class="botao-acao" id="botao-jogar-jogo-da-velha">Jogar</button>
                         </div>
@@ -221,7 +221,9 @@
 
                         <div id="jogo-da-velha-container" style="display: none;">
                             <button class="botao-acao" id="botao-voltar-jogo-da-velha">Voltar</button>
+
                             <h3>Jogo da Velha</h3>
+
                             <div id="jogo-da-velha-board">
                                 <div class="celula" data-index="0"></div>
                                 <div class="celula" data-index="1"></div>
@@ -233,56 +235,22 @@
                                 <div class="celula" data-index="7"></div>
                                 <div class="celula" data-index="8"></div>
                             </div>
+
                             <div id="jogo-da-velha-status" class="status-jogo"></div>
-                            
+
                             <button id="reiniciar-jogo-velha" class="botao-game-action">Reiniciar Jogo</button>
                         </div>
 
                         <div id="jogo-da-memoria-container" style="display: none;">
                             <button class="botao-acao" id="botao-voltar-jogo-da-memoria">Voltar</button>
+
                             <h3>Jogo da Memória</h3>
 
-                            <div class="jogo-da-memoria-cartas">
-                                <div class="jogo-da-memoria-carta"  data-framework="bolsa">
-                                    <span class="frente-carta">👜</span>
-                                    <span class="atras-carta">❓</span>
-                                </div>
+                            <div id="jogo-da-memoria-board"></div>
 
-                                <div class="jogo-da-memoria-carta"  data-framework="bolsa">
-                                    <span class="frente-carta">👜</span>
-                                    <span class="atras-carta">❓</span>
-                                </div>
+                            <div id="jogo-da-memoria-status" class="status-jogo"></div>
 
-                                <div class="jogo-da-memoria-carta"  data-framework="presente">
-                                    <span class="frente-carta">🎁</span>
-                                    <span class="atras-carta">❓</span>
-                                </div>
-
-                                <div class="jogo-da-memoria-carta"  data-framework="presente">
-                                    <span class="frente-carta">🎁</span>
-                                    <span class="atras-carta">❓</span>
-                                </div>
-
-                                <div class="jogo-da-memoria-carta"  data-framework="controle">
-                                    <span class="frente-carta">🎮</span>
-                                    <span class="atras-carta">❓</span>
-                                </div>
-
-                                <div class="jogo-da-memoria-carta"  data-framework="controle">
-                                    <span class="frente-carta">🎮</span>
-                                    <span class="atras-carta">❓</span>
-                                </div>
-
-                                <div class="jogo-da-memoria-carta"  data-framework="balao">
-                                    <span class="frente-carta">🎈</span>
-                                    <span class="atras-carta">❓</span>
-                                </div>
-
-                                <div class="jogo-da-memoria-carta"  data-framework="balao">
-                                    <span class="frente-carta">🎈</span>
-                                    <span class="atras-carta">❓</span>
-                                </div>
-                            </div>
+                            <button id="reiniciar-jogo-memoria" class="botao-game-action">Reiniciar Jogo</button>
                         </div>
 
                     </div>
@@ -294,7 +262,7 @@
     <script type="module" src="./assets/src/main.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./assets/src/sw.js');
+            navigator.serviceWorker.register('/assets/src/sw.js');
         }
     </script>
 </body>
