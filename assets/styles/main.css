@@ -452,9 +452,6 @@ input[type="range"]::-moz-focus-outer {
 }
 
 .games-container .botao-acao {
-  position: absolute;
-  top: 15%;
-  right: 5%;
   font-size: 1rem;
 }
 
