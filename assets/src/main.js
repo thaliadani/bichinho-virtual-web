@@ -524,7 +524,7 @@ function darRecompensa() {
 }
 
 // ===== LÓGICA DO JOGO DA MEMÓRIA =====
-const imagensMemoria = ["🐶", "🐱", "🐰", "🐼", "🐮", "🐸", "🐹", "🐷","🐻"];
+const imagensMemoria = ["🐶", "🐱", "🐰", "🐼", "🐮", "🐸"];
 
 let cartasEscolhidas = [];
 
