@@ -58,7 +58,6 @@ body[data-status="loading"] #boas-vindas {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   min-width: 500px;
   max-width: 500px;
   min-height: 100%;
@@ -166,6 +165,10 @@ input[type="range"]::-moz-focus-outer {
   width: 100%;
   height: 100%;
   gap: 1rem;
+}
+
+.tela-inicial {
+  text-align: center;
 }
 
 .jogo-container {
