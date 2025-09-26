@@ -466,7 +466,7 @@ input[type="range"]::-moz-focus-outer {
   border-radius: 15px;
   transition: all 0.3s ease;
   width: 100%;
-  height: 100%;
+  height: 350px;
   gap: .8rem;
 }
 
@@ -475,9 +475,8 @@ input[type="range"]::-moz-focus-outer {
   height: 100%;
 }
 
-#opcao-mini-game button {
-  padding: 0.4rem 1.2rem;
-  font-size: 1rem;
+.acessorios-container .acessorio-item{
+  height: 250px;
 }
 
 .acessorios-container .acessorio-item:hover,
