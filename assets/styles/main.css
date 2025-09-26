@@ -403,7 +403,7 @@ input[type="range"]::-moz-focus-outer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 500px;
+  min-width: 500px;
   height: 100%;
 }
 
@@ -446,7 +446,11 @@ input[type="range"]::-moz-focus-outer {
   height: 100%;
 }
 
-.games-container{
+#opcao-mini-game .imagem-mini-game {
+  font-size: 2rem;
+}
+
+.games-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -474,17 +478,6 @@ input[type="range"]::-moz-focus-outer {
   transition: all 0.3s ease;
   width: 100%;
   height: 100%;
-  gap: 0.8rem;
-}
-
-#opcao-mini-game figure img {
-  width: 180px;
-  height: 100%;
-}
-
-#opcao-mini-game button {
-  padding: 0.4rem 1.2rem;
-  font-size: 1rem;
 }
 
 .acessorios-container .acessorio-item:hover,
@@ -493,27 +486,35 @@ input[type="range"]::-moz-focus-outer {
   box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
 
-.acessorios-container .acessorio-item .acessorio-emoji {
+.acessorios-container .acessorio-item .acessorio-emoji,
+.mini-games-container #opcao-mini-game .imagem-mini-game {
   margin-bottom: 10px;
   font-size: 2.4rem;
 }
 
-.acessorios-container .acessorio-item span {
+.acessorios-container .acessorio-item span,
+.mini-games-container #opcao-mini-game span {
   margin-bottom: 10px;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
-.botao-comprar {
+.botao-game {
+  background-color: var(--cor-botoes);
+}
+
+.botao-comprar,
+.botao-game {
   color: var(--cor-texto);
   border: none;
   border-radius: 20px;
   padding: 8px 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: 1.2rem;
 }
 
-.botao-comprar:hover {
-  background-color: var(--cor-botao-hover);
+.botao-game:hover {
+  background-color: var(--cor-botoes-hover);
 }
 
 .acessorios-bichinho {
