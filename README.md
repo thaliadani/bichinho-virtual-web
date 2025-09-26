@@ -37,6 +37,6 @@ Um projeto de bichinho virtual interativo, desenvolvido com HTML, CSS e JavaScri
 
 - Saúde: Se a saúde estiver baixa, clique no ícone de remédio para curá-lo.
 
-Mini-Games: Acesse a tela de jogos para ganhar moedas.
+- Mini-Games: Acesse a tela de jogos para ganhar moedas.
 
-Loja: Use suas moedas para comprar novos acessórios para seu bichinho.
+- Loja: Use suas moedas para comprar novos acessórios para seu bichinho.
