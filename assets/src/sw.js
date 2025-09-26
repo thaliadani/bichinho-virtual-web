@@ -1,5 +1,5 @@
 const CACHE_NAME = "meu-pwa-v1";
-const arquivos = ["/", "/index.html", "/assets/styles/main.css", "/assets/src/main.js", "/assets/images/icon.png"];
+const arquivos = ["/", "/index.html", "/assets/styles/main.css", "/assets/src/main.js", "/assets/images/icons/icon-192.png", "/assets/images/icons/icon-512.png"];
 
 self.addEventListener("install", (event) => {
     event.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(arquivos)));
