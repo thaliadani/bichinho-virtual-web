@@ -564,10 +564,20 @@ function verificarPar() {
     const [carta1, carta2] = cartasEscolhidas;
     if (carta1.getAttribute("data-imagem") === carta2.getAttribute("data-imagem")) {
         coinAudio.play();
+        
         carta1.removeEventListener("click", lidarComClickMemoria);
+        
         carta2.removeEventListener("click", lidarComClickMemoria);
-        exibirMensagem("Par encontrado!");
-        if (document.querySelectorAll(".carta-memoria").length === document.querySelectorAll(".carta-memoria:not([data-encontrada])").length) {
+        
+        carta1.setAttribute("data-encontrada", "true");
+        
+        carta2.setAttribute("data-encontrada", "true");
+
+        const cartasEncontradas = document.querySelectorAll(".carta-memoria[data-encontrada='true']").length;
+        
+         const totalCartas = document.querySelectorAll(".carta-memoria").length;
+
+        if (cartasEncontradas === totalCartas) {
             statusJogoMemoria.textContent = "Você venceu! 🎉";
             darRecompensa();
             botaoReiniciarJogoMemoria.style.display = "block";

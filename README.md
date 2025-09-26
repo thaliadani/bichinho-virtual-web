@@ -28,8 +28,6 @@ Um projeto de bichinho virtual interativo, desenvolvido com HTML, CSS e JavaScri
 
 - JavaScript: Lógica do jogo, gerenciamento de estado do bichinho e funcionalidades de interação.
 
-- PWA: Baixe o aplicativo usando o navegador em dispositivos móveis e computador para facilitar o acesso.
-
 ## 🕹️ Como Jogar
 - Fome: Clique no ícone de comida para alimentar seu bichinho.
 
@@ -39,6 +37,6 @@ Um projeto de bichinho virtual interativo, desenvolvido com HTML, CSS e JavaScri
 
 - Saúde: Se a saúde estiver baixa, clique no ícone de remédio para curá-lo.
 
-- Mini-Games: Acesse a tela de jogos para ganhar moedas.
+Mini-Games: Acesse a tela de jogos para ganhar moedas.
 
-- Loja: Use suas moedas para comprar novos acessórios para seu bichinho.
+Loja: Use suas moedas para comprar novos acessórios para seu bichinho.
