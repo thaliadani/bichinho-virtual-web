@@ -649,7 +649,7 @@ input[type="range"]::-moz-focus-outer {
 
 .mensagem {
   position: absolute;
-  top: 49%;
+  top: 50%;
   border-radius: 5px;
   font-weight: bold;
   font-size: 1.2em;
