@@ -664,6 +664,10 @@ input[type="range"]::-moz-focus-outer {
     font-size: 1.4rem;
   }
 
+  .tela-inicial, .conteudo-jogo{
+    height: 100vh;
+  }
+
   .acessorio-item .acessorio-emoji,
   .acessorio-item span {
     font-size: 1.2rem;
