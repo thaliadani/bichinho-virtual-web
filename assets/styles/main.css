@@ -653,8 +653,6 @@ input[type="range"]::-moz-focus-outer {
     border-radius: 0;
     box-shadow: none;
     min-width: 100%;
-    height: 100vh;
-    overflow: hidden;
   }
 
   .container-principal h2 {
@@ -664,6 +662,11 @@ input[type="range"]::-moz-focus-outer {
   .container-principal p,
   .container-principal span {
     font-size: 1.4rem;
+  }
+
+  .tela-inicial,
+  .jogo-container {
+    height: 100vh;
   }
 
   .acessorio-item .acessorio-emoji,
@@ -709,7 +712,8 @@ input[type="range"]::-moz-focus-outer {
     -moz-box-shadow: 5px -17px 45px 13px rgba(0, 0, 0, 0.75);
   }
 
-  .acessorios-container,.opcoes-mini-games {
+  .acessorios-container,
+  .opcoes-mini-games {
     grid-template-columns: repeat(1, 1fr);
   }
 
