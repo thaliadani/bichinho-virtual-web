@@ -404,9 +404,10 @@ input[type="range"]::-moz-focus-outer {
   align-items: center;
   justify-content: center;
   min-width: 500px;
-      box-shadow: 5px -17px 45px 13px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 5px -17px 45px 13px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 5px -17px 45px 13px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px -17px 45px 13px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 5px -17px 45px 13px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px -17px 45px 13px rgba(0, 0, 0, 0.75);
+  border-radius:30px;
 }
 
 .loja-header,
@@ -752,4 +753,5 @@ input[type="range"]::-moz-focus-outer {
     top: 22%;
   }
 }
+
 
