@@ -21,7 +21,7 @@ Um projeto de bichinho virtual interativo, desenvolvido com HTML, CSS e JavaScri
 
 - Design Responsivo: Jogue em qualquer dispositivo, seja no computador ou no celular.
   
-- PWA: Baixe o app pelo navegador e jogue em todos dispositivos
+- PWA: Instale como app pelo navegador e jogue em todos dispositivos.
 
 ## 🛠️ Tecnologias Utilizadas
 - HTML: Estrutura base da aplicação.
