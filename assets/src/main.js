@@ -292,7 +292,12 @@ function aplicarTemaSalvo() {
 
 // ===== FUNÇÕES DA LOJA DE ACESSÓRIOS =====
 function abrirLoja() {
-    containerLoja.style.display = "flex";
+    if (containerMiniGames.style.display === "none") {
+        containerLoja.style.display = "flex";
+    } else {
+        fecharMiniGames();
+        containerLoja.style.display = "flex";
+    }
     atualizarBotoesLoja();
 }
 
@@ -390,7 +395,12 @@ function exibirMensagem(texto) {
 
 // ===== FUNÇÕES DE MINI GAMES =====
 function abrirMiniGames() {
-    containerMiniGames.style.display = "flex";
+    if (containerLoja.style.display === "none") {
+        containerMiniGames.style.display = "flex";
+    } else {
+        fecharLoja();
+        containerMiniGames.style.display = "flex";
+    }
     iniciarJogoDaVelha();
 }
 
@@ -548,7 +558,6 @@ function iniciarJogoDaMemoria() {
 
 function lidarComClickMemoria(evento) {
     const cartaClicada = evento.currentTarget;
-    const index = cartaClicada.getAttribute("data-index");
     const imagem = cartaClicada.getAttribute("data-imagem");
     if (cartasEscolhidas.length < 2 && !cartasEscolhidas.includes(cartaClicada) && cartaClicada.textContent === "❓") {
         clickAudio.play();
@@ -563,22 +572,22 @@ function lidarComClickMemoria(evento) {
 function verificarPar() {
     const [carta1, carta2] = cartasEscolhidas;
     if (carta1.getAttribute("data-imagem") === carta2.getAttribute("data-imagem")) {
-        coinAudio.play();
-        
+
         carta1.removeEventListener("click", lidarComClickMemoria);
-        
+
         carta2.removeEventListener("click", lidarComClickMemoria);
-        
+
         carta1.setAttribute("data-encontrada", "true");
-        
+
         carta2.setAttribute("data-encontrada", "true");
 
         const cartasEncontradas = document.querySelectorAll(".carta-memoria[data-encontrada='true']").length;
-        
-         const totalCartas = document.querySelectorAll(".carta-memoria").length;
+
+        const totalCartas = document.querySelectorAll(".carta-memoria").length;
 
         if (cartasEncontradas === totalCartas) {
             statusJogoMemoria.textContent = "Você venceu! 🎉";
+            coinAudio.play();
             darRecompensa();
             botaoReiniciarJogoMemoria.style.display = "block";
         }
@@ -613,7 +622,7 @@ function carregarConfiguracoesDeAudio() {
         backgroundAudio.volume = novoVolume;
         sliderMusica.value = volumeMusicaSalvo;
     } else {
-        backgroundAudio.volume = 0.04;
+        backgroundAudio.volume = 0.1;
     }
 
     if (volumeSonsSalvo !== null) {
@@ -764,10 +773,12 @@ botaoLoja.addEventListener("click", () => {
     clickAudio.play();
     abrirLoja();
 });
+
 botaoSairLoja.addEventListener("click", () => {
     cutAudio.play();
     fecharLoja();
 });
+
 botoesComprar.forEach((botao) => {
     botao.addEventListener("click", function () {
         const acessorio = this.getAttribute("data-acessorio");
@@ -779,6 +790,7 @@ botaoMiniGames.addEventListener("click", () => {
     clickAudio.play();
     abrirMiniGames();
 });
+
 botaoSairMiniGames.addEventListener("click", () => {
     cutAudio.play();
     fecharMiniGames();
