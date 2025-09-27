@@ -20,6 +20,8 @@ Um projeto de bichinho virtual interativo, desenvolvido com HTML, CSS e JavaScri
 - Configurações de aúdio: Pode alterar o volume do jogo.
 
 - Design Responsivo: Jogue em qualquer dispositivo, seja no computador ou no celular.
+  
+- PWA: Baixe o app pelo navegador e jogue em todos dispositivos
 
 ## 🛠️ Tecnologias Utilizadas
 - HTML: Estrutura base da aplicação.
@@ -37,6 +39,6 @@ Um projeto de bichinho virtual interativo, desenvolvido com HTML, CSS e JavaScri
 
 - Saúde: Se a saúde estiver baixa, clique no ícone de remédio para curá-lo.
 
-Mini-Games: Acesse a tela de jogos para ganhar moedas.
+- Mini-Games: Acesse a tela de jogos para ganhar moedas.
 
-Loja: Use suas moedas para comprar novos acessórios para seu bichinho.
+- Loja: Use suas moedas para comprar novos acessórios para seu bichinho.
