@@ -287,7 +287,6 @@ function aplicarTemaSalvo() {
     }
 }
 
-
 // ===== FUNÇÕES DA LOJA DE ACESSÓRIOS =====
 function abrirLoja() {
     if (containerMiniGames.style.display === "none") {
@@ -634,10 +633,22 @@ function carregarConfiguracoesDeAudio() {
     }
 }
 
+// ===== FUNÇÕES DE ÁUDIO E VOLUME =====
+
+/**
+ * Reproduz a música de fundo em loop.
+ */
+function reproduzirMusicaEmLoop() {
+    backgroundAudio.loop = true;
+    backgroundAudio.play();
+}
+
+
 // ===== CONFIGURAÇÃO DE EVENT LISTENERS (MONITORAMENTO DE EVENTOS) =====
 
 botaoAtivarAudio.addEventListener('click', () => {
     // Tente reproduzir a música novamente com a interação do usuário.
+    reproduzirMusicaEmLoop();
     backgroundAudio.play().then(() => {
         // Se a reprodução for bem-sucedida, esconda a notificação.
         notificacaoAudio.style.display = 'none';
