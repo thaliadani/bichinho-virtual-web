@@ -252,7 +252,7 @@ input[type="range"]::-moz-focus-outer {
   border-radius: 20px;
   padding: 0 1.2rem;
   width: 220px;
-  height: 50px;
+  height: 60px;
   font-weight: bold;
   font-size: 1.2rem;
   cursor: pointer;
@@ -615,7 +615,7 @@ input[type="range"]::-moz-focus-outer {
 }
 
 @media screen and (max-width: 768px) {
-  .container-principal {
+  .container-principal{
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -633,33 +633,27 @@ input[type="range"]::-moz-focus-outer {
     font-size: 1.4rem;
   }
 
-  .tela-inicial,
-  .jogo-container {
-    height: 100%;
-  }
-
-  .acessorio-item .acessorio-emoji,
-  .acessorio-item span {
-    font-size: 1.2rem;
-  }
-
-  .status-label {
-    margin-right: 1.5rem;
-  }
-
-  .notificacao-audio {
-    flex-direction: column;
-  }
-
-  .botao-acao,
-  .menu-lateral .botao-menu {
-    font-size: 1.6rem;
+  .botao-acao, .menu-lateral .botao-menu {
     box-shadow: none;
   }
 
   #botao-config,
   #botao-tema {
     font-size: 2rem;
+  }
+
+  .menu-config {
+    width: 190px;
+    height: 200px;
+    font-size: 1.2rem;
+  }
+  .status-label {
+    margin-right: 1.5rem;
+  }
+
+  .menu-lateral {
+    background: none;
+    left: 70%;
   }
 
   .menu-lateral .botao-menu {
@@ -669,7 +663,7 @@ input[type="range"]::-moz-focus-outer {
 
   .loja-container,
   .mini-games-container {
-    top: -5%;
+    top: -6%;
     left: 0;
     min-width: 100%;
     min-height: 100%;
@@ -683,15 +677,9 @@ input[type="range"]::-moz-focus-outer {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .menu-config {
-    width: 190px;
-    height: 200px;
+  .acessorio-item .acessorio-emoji,
+  .acessorio-item span {
     font-size: 1.2rem;
-  }
-
-  .menu-lateral {
-    background: none;
-    left: 70%;
   }
 
   .acessorio-equipado.coroa-equipado,
