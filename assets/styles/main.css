@@ -59,7 +59,6 @@ body[data-status="loading"] #boas-vindas {
   align-items: center;
   justify-content: center;
   min-width: 500px;
-  max-width: 500px;
   height: 100%;
   border-radius: 30px;
   padding: 1rem;
@@ -68,7 +67,7 @@ body[data-status="loading"] #boas-vindas {
   border: 8px solid var(--cor-borda);
   box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  margin-top:1rem;
+  margin-top: 1rem;
 }
 
 .container-principal h1 {
@@ -252,7 +251,7 @@ input[type="range"]::-moz-focus-outer {
   border: none;
   border-radius: 20px;
   padding: 0.4rem 1.2rem;
-  margin: 0.3rem;
+  margin: 0.3rem 0;
   font-size: 1.4rem;
   cursor: pointer;
   flex-grow: 1;
@@ -307,6 +306,7 @@ input[type="range"]::-moz-focus-outer {
   justify-content: center;
   width: 100%;
   gap: 0.5rem;
+  padding-top: 2rem;
 }
 
 .status-container .status-item {
@@ -402,12 +402,16 @@ input[type="range"]::-moz-focus-outer {
   border-radius: 30px;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-ar;
   min-width: 500px;
   box-shadow: 5px -17px 45px 13px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 5px -17px 45px 13px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 5px -17px 45px 13px rgba(0, 0, 0, 0.75);
-  border-radius:30px;
+  border-radius: 30px;
+}
+
+.mini-games-container .botao-acao{
+  margin-top: 1rem;
 }
 
 .loja-header,
@@ -447,27 +451,6 @@ input[type="range"]::-moz-focus-outer {
   gap: 1rem;
   width: 100%;
   height: 100%;
-
-}
-
-#opcao-mini-game .imagem-mini-game {
-  font-size: 2rem;
-}
-
-.games-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.games-container h3 {
-  margin-top: 1.8rem;
-  font-size: 1.5rem;
-}
-
-.games-container .botao-acao {
-  font-size: 1rem;
 }
 
 .acessorios-container .acessorio-item,
@@ -558,6 +541,7 @@ input[type="range"]::-moz-focus-outer {
   justify-content: center;
   width: 100%;
   height: 100%;
+  gap: 1rem;
 }
 
 #jogo-da-velha-board {
@@ -565,7 +549,6 @@ input[type="range"]::-moz-focus-outer {
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
   gap: 5px;
-  margin: 20px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 0.8rem;
   background-color: var(--cor-borda);
@@ -634,22 +617,6 @@ input[type="range"]::-moz-focus-outer {
   margin-top: 10px;
 }
 
-.botao-game-action {
-  background-color: var(--cor-botoes);
-  color: var(--cor-texto);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 15px;
-  transition: background-color 0.3s;
-}
-
-.botao-game-action:hover {
-  background-color: var(--cor-botoes-hover);
-}
-
 .mensagem {
   position: absolute;
   top: 50%;
@@ -668,6 +635,7 @@ input[type="range"]::-moz-focus-outer {
     max-width: 100%;
     margin-top: 0;
     height: 100vh;
+    padding: 0;
   }
 
   .container-principal h2 {
@@ -715,10 +683,13 @@ input[type="range"]::-moz-focus-outer {
 
   .loja-container,
   .mini-games-container {
-    top: 0;
+    top: -4%;
     left: 0;
     min-width: 100%;
-    height: 100%;
+    min-height: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .acessorios-container,
@@ -747,8 +718,3 @@ input[type="range"]::-moz-focus-outer {
     top: 22%;
   }
 }
-
-
-
-
-

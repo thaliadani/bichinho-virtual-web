@@ -328,9 +328,6 @@ function equiparOuDesequiparAcessorio(tipoAcessorio) {
                 equipado: true
             };
             coinAudio.play();
-            exibirMensagem(`Você comprou e equipou o acessório!`);
-        } else {
-            exibirMensagem("Moedas insuficientes para comprar este acessório!");
         }
     }
 

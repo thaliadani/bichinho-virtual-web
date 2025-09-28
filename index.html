@@ -150,103 +150,101 @@
                         <button id="botao-mini-games" class="botao-menu" title="Mini Games">🕹️</button>
                     </nav>
                 </div>
+            </div>
 
-                <!-- Loja de acessórios (inicialmente oculta) -->
-                <div id="container-loja" class="loja-container" style="display: none;">
-                    <div class="loja-header">
-                        <h2>Loja de Acessórios</h2>
-                        <button id="botao-sair-loja" class="botao-sair" aria-label="Fechar loja">X</button>
-                    </div>
-
-                    <div class="acessorios-container">
-                        <div class="acessorio-item" data-acessorio="coroa">
-                            <div class="acessorio-emoji">👑</div>
-                            <span>Coroa Real</span>
-                            <button class="botao-comprar" data-acessorio="coroa">Equipar</button>
-                        </div>
-                        <div class="acessorio-item" data-acessorio="chapeu-laco">
-                            <div class="acessorio-emoji">👒</div>
-                            <span>Chapéu com Laço</span>
-                            <button class="botao-comprar" data-acessorio="chapeu-laco">Equipar</button>
-                        </div>
-                        <div class="acessorio-item" data-acessorio="chapeu-cartola">
-                            <div class="acessorio-emoji">🎩</div>
-                            <span>Chapéu Cartola</span>
-                            <button class="botao-comprar" data-acessorio="chapeu-cartola">Equipar</button>
-                        </div>
-                        <div class="acessorio-item" data-acessorio="laco">
-                            <div class="acessorio-emoji">🎀</div>
-                            <span>Laço de Princesa</span>
-                            <button class="botao-comprar" data-acessorio="laco">Equipar</button>
-                        </div>
-                    </div>
+            <!-- Loja de acessórios (inicialmente oculta) -->
+            <div id="container-loja" class="loja-container" style="display: none;">
+                <div class="loja-header">
+                    <h2>Loja de Acessórios</h2>
+                    <button id="botao-sair-loja" class="botao-sair" aria-label="Fechar loja">X</button>
                 </div>
 
-                <!-- Área de mini games (inicialmente oculta) -->
-                <div id="container-mini-games" class="mini-games-container" style="display: none;">
-                    <div class="mini-games-header">
-                        <h2>Mini Games</h2>
-                        <button id="botao-sair-mini-games" class="botao-sair" aria-label="Fechar mini games">X</button>
+                <div class="acessorios-container">
+                    <div class="acessorio-item" data-acessorio="coroa">
+                        <div class="acessorio-emoji">👑</div>
+                        <span>Coroa Real</span>
+                        <button class="botao-comprar" data-acessorio="coroa">Equipar</button>
                     </div>
-
-                    <div id="opcoes-mini-games" class="opcoes-mini-games">
-                        <div id="opcao-mini-game">
-                            <div class="imagem-mini-game">🎮</div>
-                            <span>Jogo da Velha</span>
-                            <button class="botao-game" id="botao-jogar-jogo-da-velha">Jogar</button>
-                        </div>
-
-                        <div id="opcao-mini-game">
-                            <div class="imagem-mini-game">🎮</div>
-                            <span>Jogo da Memória</span>
-                            <button class="botao-game" id="botao-jogar-jogo-da-memoria">Jogar</button>
-                        </div>
-
-                        <div id="opcao-mini-game">
-                            <h3>Em breve</h3>
-                        </div>
-
-                        <div id="opcao-mini-game">
-                            <h3>Em breve</h3>
-                        </div>
-
+                    <div class="acessorio-item" data-acessorio="chapeu-laco">
+                        <div class="acessorio-emoji">👒</div>
+                        <span>Chapéu com Laço</span>
+                        <button class="botao-comprar" data-acessorio="chapeu-laco">Equipar</button>
                     </div>
-
-                    <div class="games-container">
-
-                        <div id="jogo-da-velha-container" style="display: none;">
-                            <button class="botao-acao" id="botao-voltar-jogo-da-velha">Voltar</button>
-                            
-                          
-                            
-                            <div id="jogo-da-velha-board">
-                                <div class="celula" data-index="0"></div>
-                                <div class="celula" data-index="1"></div>
-                                <div class="celula" data-index="2"></div>
-                                <div class="celula" data-index="3"></div>
-                                <div class="celula" data-index="4"></div>
-                                <div class="celula" data-index="5"></div>
-                                <div class="celula" data-index="6"></div>
-                                <div class="celula" data-index="7"></div>
-                                <div class="celula" data-index="8"></div>
-                            </div>
-                            <div id="jogo-da-velha-status" class="status-jogo"></div>
-                            <button id="reiniciar-jogo-velha" class="botao-game-action">Reiniciar Jogo</button>
-                        </div>
-
-                        <div id="jogo-da-memoria-container" style="display: none;">
-                            <button class="botao-acao" id="botao-voltar-jogo-da-memoria">Voltar</button>
-                           
-                            <div id="jogo-da-memoria-board"></div>
-                            
-                            <div id="jogo-da-memoria-status" class="status-jogo"></div>
-                            
-                            <button id="reiniciar-jogo-memoria" class="botao-game-action">Reiniciar Jogo</button>
-                        </div>
+                    <div class="acessorio-item" data-acessorio="chapeu-cartola">
+                        <div class="acessorio-emoji">🎩</div>
+                        <span>Chapéu Cartola</span>
+                        <button class="botao-comprar" data-acessorio="chapeu-cartola">Equipar</button>
+                    </div>
+                    <div class="acessorio-item" data-acessorio="laco">
+                        <div class="acessorio-emoji">🎀</div>
+                        <span>Laço de Princesa</span>
+                        <button class="botao-comprar" data-acessorio="laco">Equipar</button>
                     </div>
                 </div>
             </div>
+
+            <!-- Área de mini games (inicialmente oculta) -->
+            <div id="container-mini-games" class="mini-games-container" style="display: none;">
+                <div class="mini-games-header">
+                    <h2>Mini Games</h2>
+                    <button id="botao-sair-mini-games" class="botao-sair" aria-label="Fechar mini games">X</button>
+                </div>
+
+
+                <div id="opcoes-mini-games" class="opcoes-mini-games">
+                    <div id="opcao-mini-game">
+                        <div class="imagem-mini-game">🎮</div>
+                        <span>Jogo da Velha</span>
+                        <button class="botao-game" id="botao-jogar-jogo-da-velha">Jogar</button>
+                    </div>
+
+                    <div id="opcao-mini-game">
+                        <div class="imagem-mini-game">🎮</div>
+                        <span>Jogo da Memória</span>
+                        <button class="botao-game" id="botao-jogar-jogo-da-memoria">Jogar</button>
+                    </div>
+
+                    <div id="opcao-mini-game">
+                        <h3>Em breve</h3>
+                    </div>
+
+                    <div id="opcao-mini-game">
+                        <h3>Em breve</h3>
+                    </div>
+
+                </div>
+
+                <div id="jogo-da-velha-container" style="display: none;">
+                    <button class="botao-acao" id="botao-voltar-jogo-da-velha">Voltar</button>
+
+                    <div id="jogo-da-velha-board">
+                        <div class="celula" data-index="0"></div>
+                        <div class="celula" data-index="1"></div>
+                        <div class="celula" data-index="2"></div>
+                        <div class="celula" data-index="3"></div>
+                        <div class="celula" data-index="4"></div>
+                        <div class="celula" data-index="5"></div>
+                        <div class="celula" data-index="6"></div>
+                        <div class="celula" data-index="7"></div>
+                        <div class="celula" data-index="8"></div>
+                    </div>
+                    <div id="jogo-da-velha-status" class="status-jogo"></div>
+                    <button id="reiniciar-jogo-velha" class="botao-acao">Reiniciar Jogo</button>
+                </div>
+
+                <div id="jogo-da-memoria-container" style="display: none;">
+
+                    <button class="botao-acao" id="botao-voltar-jogo-da-memoria">Voltar</button>
+
+                    <div id="jogo-da-memoria-board"></div>
+
+                    <div id="jogo-da-memoria-status" class="status-jogo"></div>
+                    <button id="reiniciar-jogo-memoria" class="botao-acao">Reiniciar Jogo</button>
+                </div>
+            </div>
         </section>
+
+
     </main>
 
     <script type="module" src="./assets/src/main.js"></script>
