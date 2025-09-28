@@ -1,6 +1,6 @@
 # Bichinho Virtual
 
-<img width="1366" height="632" alt="screencapture-127-0-0-1-5501-2025-09-12-09_36_15" src="https://github.com/user-attachments/assets/a6b9b535-49bf-4ece-900a-502a8e60169d" />
+<img width="1304" height="805" alt="Bichinho Virtual (28 09 2025 11_39)" src="https://github.com/user-attachments/assets/a9d0e24b-f3ae-4682-9290-99dfc87987de" />
 
 Um projeto de bichinho virtual interativo, desenvolvido com HTML, CSS e JavaScript. Cuide do seu bichinho alimentando-o, brincando com ele, limpando-o e medicando-o para mantê-lo feliz e saudável. Além disso, ganhe moedas em mini-games para personalizar seu pet com acessórios incríveis!
 
@@ -42,3 +42,4 @@ Um projeto de bichinho virtual interativo, desenvolvido com HTML, CSS e JavaScri
 - Mini-Games: Acesse a tela de jogos para ganhar moedas.
 
 - Loja: Use suas moedas para comprar novos acessórios para seu bichinho.
+
