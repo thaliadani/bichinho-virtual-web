@@ -58,10 +58,10 @@ body[data-status="loading"] #boas-vindas {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 500px;
+  width: 500px;
   height: 100%;
   border-radius: 30px;
-  padding: 1rem;
+  padding: 1.8rem 1rem;
   gap: 1rem;
   background-color: var(--cor-principal);
   border: 8px solid var(--cor-borda);
@@ -249,9 +249,11 @@ input[type="range"]::-moz-focus-outer {
   background-color: var(--cor-botoes);
   color: var(--cor-texto);
   border: none;
-  border-radius: 20px;
-  padding: 0.4rem 1.2rem;
-  margin: 0.3rem 0;
+  border-radius: 30px;
+  padding: 0 1.2rem;
+  width: 200px;
+  max-height: 80px;
+  font-weight: bold;
   font-size: 1.4rem;
   cursor: pointer;
   flex-grow: 1;
@@ -307,6 +309,12 @@ input[type="range"]::-moz-focus-outer {
   width: 100%;
   gap: 0.5rem;
   padding-top: 2rem;
+}
+
+.botoes-container .botao-acao {
+  margin: 0 .5rem;
+  width: 80px;
+  max-height: 80px;
 }
 
 .status-container .status-item {
@@ -410,7 +418,7 @@ input[type="range"]::-moz-focus-outer {
   border-radius: 30px;
 }
 
-.mini-games-container .botao-acao{
+.mini-games-container .botao-acao {
   margin-top: 1rem;
 }
 
@@ -631,11 +639,9 @@ input[type="range"]::-moz-focus-outer {
     border: none;
     border-radius: 0;
     box-shadow: none;
-    min-width: 100%;
-    max-width: 100%;
+    width: 100%;
     margin-top: 0;
     height: 100vh;
-    padding: 0;
   }
 
   .container-principal h2 {
@@ -683,7 +689,7 @@ input[type="range"]::-moz-focus-outer {
 
   .loja-container,
   .mini-games-container {
-    top: -4%;
+    top: -5%;
     left: 0;
     min-width: 100%;
     min-height: 100%;
