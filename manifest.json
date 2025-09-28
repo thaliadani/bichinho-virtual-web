@@ -1,10 +1,10 @@
 {
-    "name": "Meu Bichinho Virtual",
+    "name": "Bichinho Virtual",
     "short_name": "Bichinho Virtual",
     "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#fff",
-    "theme_color": "#000",
+    "background_color": "#000",
+    "theme_color": "#fff",
     "icons": [
         {
             "src": "/assets/images/icons/icon-192.png",
