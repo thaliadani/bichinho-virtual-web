@@ -249,12 +249,12 @@ input[type="range"]::-moz-focus-outer {
   background-color: var(--cor-botoes);
   color: var(--cor-texto);
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   padding: 0 1.2rem;
-  width: 200px;
-  max-height: 80px;
+  width: 220px;
+  height: 50px;
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   cursor: pointer;
   flex-grow: 1;
   transition: background-color 0.3s ease;
@@ -311,12 +311,6 @@ input[type="range"]::-moz-focus-outer {
   padding-top: 2rem;
 }
 
-.botoes-container .botao-acao {
-  margin: 0 .5rem;
-  width: 80px;
-  max-height: 80px;
-}
-
 .status-container .status-item {
   display: flex;
   align-items: center;
@@ -365,6 +359,11 @@ input[type="range"]::-moz-focus-outer {
   justify-content: space-between;
   width: 100%;
   align-items: center;
+}
+
+.botoes-container .botao-acao {
+  margin: 0 .5rem;
+  width: 80px;
 }
 
 .menu-lateral {
@@ -492,25 +491,6 @@ input[type="range"]::-moz-focus-outer {
 .mini-games-container #opcao-mini-game span {
   margin-bottom: 10px;
   font-size: 1.2rem;
-}
-
-.botao-game {
-  background-color: var(--cor-botoes);
-}
-
-.botao-comprar,
-.botao-game {
-  color: var(--cor-texto);
-  border: none;
-  border-radius: 20px;
-  padding: 8px 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 1.1rem;
-}
-
-.botao-game:hover {
-  background-color: var(--cor-botoes-hover);
 }
 
 .acessorios-bichinho {
