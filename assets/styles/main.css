@@ -505,7 +505,7 @@ input[type="range"]::-moz-focus-outer {
   justify-content: center;
   align-items: center;
   pointer-events: none;
-  z-index: 10;
+
   font-size: 2.4rem;
 }
 
