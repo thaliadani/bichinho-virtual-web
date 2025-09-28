@@ -87,18 +87,16 @@ const coinAudio = new Audio("../../assets/sounds/coinsplash.ogg");
 const EMOJIS_BICHINHOS = {
     cachorro: "🐶",
     gato: "🐱",
-    coelho: "🐰",
     panda: "🐼",
     vaca: "🐮",
-    sapo: "🐸",
-    hamster: "🐹",
+    macaco: "🐵",
     porco: "🐷",
 };
 
 const PRECOS_ACESSORIOS = {
     coroa: 10,
-    "chapeu-laco": 10,
-    "chapeu-cartola": 10,
+    chapeulaco: 10,
+    cartola: 10,
     laco: 10,
 };
 
@@ -350,10 +348,10 @@ function atualizarAcessorios() {
                 case "coroa":
                     emojiAcessorio.textContent = "👑";
                     break;
-                case "chapeu-laco":
+                case "chapeulaco":
                     emojiAcessorio.textContent = "👒";
                     break;
-                case "chapeu-cartola":
+                case "cartola":
                     emojiAcessorio.textContent = "🎩";
                     break;
                 case "laco":

@@ -67,7 +67,7 @@ body[data-status="loading"] #boas-vindas {
   border: 8px solid var(--cor-borda);
   box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .container-principal h1 {
@@ -157,7 +157,8 @@ input[type="range"]::-moz-focus-outer {
 
 .jogo-container,
 .conteudo-jogo,
-.tela-inicial {
+.tela-inicial,
+#container-jogo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -252,7 +253,8 @@ input[type="range"]::-moz-focus-outer {
   border-radius: 20px;
   padding: 0 1.2rem;
   width: 220px;
-  height: 60px;
+  min-height: 60px;
+  max-height: 60px;
   font-weight: bold;
   font-size: 1.2rem;
   cursor: pointer;
@@ -461,7 +463,7 @@ input[type="range"]::-moz-focus-outer {
 }
 
 .acessorios-container .acessorio-item,
-.opcoes-mini-games #opcao-mini-game {
+.opcoes-mini-games .opcao-mini-game {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -476,26 +478,26 @@ input[type="range"]::-moz-focus-outer {
 }
 
 .acessorios-container .acessorio-item:hover,
-.opcoes-mini-games #opcao-mini-game:hover {
+.opcoes-mini-games .opcao-mini-game:hover {
   transform: translateY(-5px);
   box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
 
 .acessorios-container .acessorio-item .acessorio-emoji,
-.mini-games-container #opcao-mini-game .imagem-mini-game {
+.mini-games-container .opcao-mini-game .imagem-mini-game {
   margin-bottom: 10px;
   font-size: 2.4rem;
 }
 
 .acessorios-container .acessorio-item span,
-.mini-games-container #opcao-mini-game span {
+.mini-games-container .opcao-mini-game span {
   margin-bottom: 10px;
   font-size: 1.2rem;
 }
 
 .acessorios-bichinho {
   position: absolute;
-  top: 0;
+  bottom: 20%;
   left: 0;
   width: 100%;
   height: 100%;
@@ -504,21 +506,12 @@ input[type="range"]::-moz-focus-outer {
   align-items: center;
   pointer-events: none;
   z-index: 10;
-}
-
-.acessorio-equipado {
-  position: absolute;
-  font-size: 2rem;
-}
-
-.acessorio-equipado.coroa-equipado,
-.acessorio-equipado.chapeu-cartola-equipado,
-.acessorio-equipado.chapeu-laco-equipado {
-  top: 15%;
+  font-size: 2.4rem;
 }
 
 .acessorio-equipado.laco-equipado {
-  top: 20%;
+  position: absolute;
+  bottom: 30%;
 }
 
 #jogo-da-velha-container,
@@ -615,25 +608,19 @@ input[type="range"]::-moz-focus-outer {
 }
 
 @media screen and (max-width: 768px) {
-  .container-principal{
+
+  .container-principal {
     border: none;
     border-radius: 0;
     box-shadow: none;
     width: 100%;
     margin-top: 0;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 100%;
   }
 
-  .container-principal h2 {
-    font-size: 1.8rem;
-  }
-
-  .container-principal p,
-  .container-principal span {
-    font-size: 1.4rem;
-  }
-
-  .botao-acao, .menu-lateral .botao-menu {
+  .botao-acao,
+  .menu-lateral .botao-menu {
     box-shadow: none;
   }
 
@@ -647,6 +634,7 @@ input[type="range"]::-moz-focus-outer {
     height: 200px;
     font-size: 1.2rem;
   }
+
   .status-label {
     margin-right: 1.5rem;
   }
@@ -663,10 +651,10 @@ input[type="range"]::-moz-focus-outer {
 
   .loja-container,
   .mini-games-container {
-    top: -6%;
+    top:0;
     left: 0;
     min-width: 100%;
-    min-height: 100%;
+    height: 100%;
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -676,19 +664,5 @@ input[type="range"]::-moz-focus-outer {
   .opcoes-mini-games {
     grid-template-columns: repeat(1, 1fr);
   }
-
-  .acessorio-item .acessorio-emoji,
-  .acessorio-item span {
-    font-size: 1.2rem;
-  }
-
-  .acessorio-equipado.coroa-equipado,
-  .acessorio-equipado.chapeu-cartola-equipado,
-  .acessorio-equipado.chapeu-laco-equipado {
-    top: 17%;
-  }
-
-  .acessorio-equipado.laco-equipado {
-    top: 22%;
-  }
 }
+
