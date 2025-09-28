@@ -741,17 +741,14 @@ input[type="range"]::-moz-focus-outer {
   .acessorio-equipado.coroa-equipado,
   .acessorio-equipado.chapeu-cartola-equipado,
   .acessorio-equipado.chapeu-laco-equipado {
-    top: 15%;
+    top: 17%;
   }
 
   .acessorio-equipado.laco-equipado {
-    top: 20%;
-  }
-
-  #botao-voltar-jogo-da-velha {
     top: 22%;
   }
 }
+
 
 
 
