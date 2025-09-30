@@ -8,7 +8,7 @@
 }
 
 :root {
-    --cor-fundo: #f0f0f0;
+    --cor-fundo: #f8f8f8;
     --cor-principal: #ffffff;
     --cor-texto: #333333;
     --cor-borda: #cccccc;
@@ -18,10 +18,7 @@
     --cor-botoes: #bb5bd3;
     --cor-botoes-hover: #d979f1;
     --linha: 2px solid #bb5bd3;
-    --cor-botao-sair: #d30808;
-    --cor-botao-sair-hover: #d30808ce;
     --cor-de-fundo-menu: #bb5bd3; 
-    
     --sb-track-color: #cccccc;
     --sb-thumb-color: #bb5bd3;
 }

@@ -19,7 +19,7 @@
 
             <!-- Menu da configuração -->
             <nav class="menu-config" id="menu-config" style="display:none">
-                <button type="button" id="botao-config-fechar">X</button>
+                <button type="button" id="botao-config-fechar" class="botao-sair">X</button>
 
                 <!-- Input para mudar volume da música e sons -->
                 <label for="musica">Música</label>
@@ -182,7 +182,6 @@
                     <button id="botao-sair-mini-games" class="botao-sair" aria-label="Fechar mini games">X</button>
                 </div>
 
-
                 <div id="opcoes-mini-games" class="opcoes-mini-games">
                     <div class="opcao-mini-game">
                         <div class="imagem-mini-game">🎮</div>
@@ -195,13 +194,16 @@
                         <span>Jogo da Memória</span>
                         <button class="botao-acao" id="botao-jogar-jogo-da-memoria">Jogar</button>
                     </div>
-
+                    
                     <div class="opcao-mini-game">
-                        <h3>Em breve</h3>
+                        <div class="imagem-mini-game">🎮</div>
+                        <span>Pedra, Papel e Tesoura</span>
+                        <button class="botao-acao" id="botao-jogar-pedra-papel-tesoura">Jogar</button>
                     </div>
-
+                    
                     <div class="opcao-mini-game">
-                        <h3>Em breve</h3>
+                        <div class="imagem-mini-game">🎮</div>
+                        <span>Em Breve</span>
                     </div>
 
                 </div>
@@ -233,9 +235,21 @@
                     <div id="jogo-da-memoria-status" class="status-jogo"></div>
                     <button id="reiniciar-jogo-memoria" class="botao-acao">Reiniciar Jogo</button>
                 </div>
+
+                <div id="jogo-pedra-papel-tesoura-container" style="display: none;">
+                    <button class="botao-acao" id="botao-voltar-pedra-papel-tesoura">Voltar</button>
+
+                    <div id="jogo-pedra-papel-tesoura-board" class="pedra-papel-tesoura-board">
+                        <button class="opcao" data-escolha="pedra">✊ Pedra</button>
+                        <button class="opcao" data-escolha="papel">✋ Papel</button>
+                        <button class="opcao" data-escolha="tesoura">✌️ Tesoura</button>
+                    </div>
+
+                    <div id="pedra-papel-tesoura-status" class="status-jogo"></div>
+                    <button id="reiniciar-pedra-papel-tesoura" class="botao-acao">Reiniciar Jogo</button>
+                </div>
             </div>
         </section>
-
 
     </main>
 

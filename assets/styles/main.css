@@ -411,7 +411,7 @@ input[type="range"]::-moz-focus-outer {
   border-radius: 30px;
   flex-direction: column;
   align-items: center;
-  justify-content: space-ar;
+  justify-content: space-between;
   min-width: 500px;
   box-shadow: 5px -17px 45px 13px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 5px -17px 45px 13px rgba(0, 0, 0, 0.75);
@@ -419,8 +419,8 @@ input[type="range"]::-moz-focus-outer {
   border-radius: 30px;
 }
 
-.mini-games-container .botao-acao {
-  margin-top: 1rem;
+.mini-games-container .botao-acao{
+  margin-top: 2rem;
 }
 
 .loja-header,
@@ -433,22 +433,16 @@ input[type="range"]::-moz-focus-outer {
   padding-bottom: 1rem;
 }
 
-.botao-sair,
-#botao-config-fechar {
-  background-color: var(--cor-botao-sair);
+.botao-sair {
+  background: none;
   color: var(--cor-texto);
-  font-size: 1rem;
+  font-size: 1.5rem;
   border: none;
   border-radius: 50%;
   width: 30px;
   height: 30px;
   cursor: pointer;
   font-weight: bold;
-}
-
-.botao-sair:hover,
-#botao-config-sair:hover {
-  background-color: var(--cor-botao-sair-hover);
 }
 
 .opcoes-mini-games,
@@ -505,7 +499,6 @@ input[type="range"]::-moz-focus-outer {
   justify-content: center;
   align-items: center;
   pointer-events: none;
-
   font-size: 2.4rem;
 }
 
@@ -515,14 +508,15 @@ input[type="range"]::-moz-focus-outer {
 }
 
 #jogo-da-velha-container,
-#jogo-da-memoria-container {
+#jogo-da-memoria-container,
+#jogo-pedra-papel-tesoura-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 #jogo-da-velha-board {
@@ -584,10 +578,41 @@ input[type="range"]::-moz-focus-outer {
   transform: scale(1.05);
 }
 
-#jogo-da-memoria-board .carta-memoria.virada {
-  background-color: var(--cor-principal);
+#jogo-da-memoria-board .carta-memoria[data-encontrada='true'] {
+  background-color: var(--cor-botoes);
+  color: var(--cor-texto);
   cursor: default;
-  rotate: Y(180deg);
+}
+
+.pedra-papel-tesoura-board {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.pedra-papel-tesoura-board .opcao {
+  background-color: var( --cor-fundo);
+  color: var(--cor-texto);
+  border: none;
+  border-radius: 30px;
+  padding: 0 1rem;
+  width: 180px;
+  min-height: 180px;
+  max-height: 180px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
+}
+
+.pedra-papel-tesoura-board .opcao:hover {
+  background-color: var(--cor-botoes-hover);
+}
+
+.pedra-papel-tesoura-board .opcao:active {
+  box-shadow: inset 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
 
 .status-jogo {

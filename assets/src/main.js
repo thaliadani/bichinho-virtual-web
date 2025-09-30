@@ -52,7 +52,6 @@ const containerOpcoesMiniGames = document.getElementById("opcoes-mini-games");
 const botaoJogarJogoDaVelha = document.getElementById("botao-jogar-jogo-da-velha");
 const botaoVoltarJogoDaVelha = document.getElementById("botao-voltar-jogo-da-velha");
 const containerJogoDaVelha = document.getElementById("jogo-da-velha-container");
-
 const jogoDaVelhaBoard = document.getElementById("jogo-da-velha-board");
 const celulas = document.querySelectorAll("#jogo-da-velha-board .celula");
 const statusJogoVelha = document.getElementById("jogo-da-velha-status");
@@ -62,12 +61,17 @@ const reiniciarJogoVelha = document.getElementById("reiniciar-jogo-velha");
 const botaoJogarJogoDaMemoria = document.getElementById("botao-jogar-jogo-da-memoria");
 const botaoVoltarJogoDaMemoria = document.getElementById("botao-voltar-jogo-da-memoria");
 const containerJogoDaMemoria = document.getElementById("jogo-da-memoria-container");
-
 const jogoDaMemoriaCartas = document.getElementById("jogo-da-memoria-board");
-
 const statusJogoMemoria = document.getElementById("jogo-da-memoria-status");
-
 const botaoReiniciarJogoMemoria = document.getElementById("reiniciar-jogo-memoria");
+
+//Elementos do Jogo Pedra, Papel e Tesoura
+const containerJogoPedraPapelTesoura = document.getElementById("jogo-pedra-papel-tesoura-container");
+const jogoPedraPapelTesouraBoard = document.getElementById("jogo-pedra-papel-tesoura-board");
+const botaoJogarPedraPapelTesoura = document.getElementById("botao-jogar-pedra-papel-tesoura");
+const botaoVoltarPedraPapelTesoura = document.getElementById("botao-voltar-pedra-papel-tesoura");
+const statusPedraPapelTesoura = document.getElementById("pedra-papel-tesoura-status");
+const botaoReiniciarPedraPapelTesoura = document.getElementById("reiniciar-pedra-papel-tesoura");
 
 // Elementos de configuração
 const containerConfig = document.getElementById("menu-config");
@@ -371,10 +375,10 @@ function atualizarBotoesLoja() {
 
         if (itemComprado) {
             botao.textContent = itemEquipado ? "Desequipar" : "Equipar";
-            botao.style.backgroundColor = itemEquipado ? "#f44336" : "#4caf50";
+            botao.style.backgroundColor = itemEquipado ? "var(--cor-fundo)" : "var(--cor-botoes)";
         } else {
             botao.textContent = `Comprar (${preco}🪙)`;
-            botao.style.backgroundColor = meuBichinho.moedas >= preco ? "#4caf50" : "#9e9e9e";
+            botao.style.backgroundColor = meuBichinho.moedas >= preco ? "var(--cor-botoes)" : "#837f7fff";
             botao.disabled = meuBichinho.moedas < preco;
         }
     });
@@ -594,6 +598,31 @@ function verificarPar() {
     cartasEscolhidas = [];
 }
 
+// ===== FUNÇÕES DO JOGO PEDRA, PAPEL E TESOURA =====
+function iniciarJogoPedraPapelTesoura() {
+    statusPedraPapelTesoura.textContent = "Escolha Pedra, Papel ou Tesoura!";
+    botaoReiniciarPedraPapelTesoura.style.display = "none";
+}
+function jogarPedraPapelTesoura(escolhaUsuario) {
+    const dataEscolha = escolhaUsuario.getAttribute("data-escolha");
+    const opcoes = ["pedra", "papel", "tesoura"];
+    const escolhaComputador = opcoes[Math.floor(Math.random() * opcoes.length)];
+    let resultado = "";
+
+    if (dataEscolha === escolhaComputador) {
+        resultado = "Empate!";
+    } else if (
+        (dataEscolha === "pedra" && escolhaComputador === "tesoura") ||
+        (dataEscolha === "papel" && escolhaComputador === "pedra") ||
+        (dataEscolha === "tesoura" && escolhaComputador === "papel")
+    ) {
+        resultado = "Você ganhou!";
+    } else {
+        resultado = "Você perdeu!";
+    }
+    statusPedraPapelTesoura.textContent = resultado;
+}
+
 // ===== FUNÇÕES DE ÁUDIO E VOLUME =====
 
 /**
@@ -642,7 +671,6 @@ function reproduzirMusicaEmLoop() {
     backgroundAudio.loop = true;
     backgroundAudio.play();
 }
-
 
 // ===== CONFIGURAÇÃO DE EVENT LISTENERS (MONITORAMENTO DE EVENTOS) =====
 
@@ -803,7 +831,7 @@ botaoSairMiniGames.addEventListener("click", () => {
 });
 
 botaoVoltarJogoDaVelha.addEventListener("click", () => {
-    clickAudio.play();
+    cutAudio.play();
     containerJogoDaVelha.style.display = "none";
     containerOpcoesMiniGames.style.display = "grid";
 })
@@ -827,7 +855,7 @@ botaoJogarJogoDaMemoria.addEventListener("click", () => {
 });
 
 botaoVoltarJogoDaMemoria.addEventListener("click", () => {
-    clickAudio.play();
+    cutAudio.play();
     containerJogoDaMemoria.style.display = "none";
     containerOpcoesMiniGames.style.display = "grid";
 });
@@ -835,6 +863,24 @@ botaoVoltarJogoDaMemoria.addEventListener("click", () => {
 botaoReiniciarJogoMemoria.addEventListener("click", () => {
     clickAudio.play();
     iniciarJogoDaMemoria();
+});
+
+botaoJogarPedraPapelTesoura.addEventListener("click", () => {
+    clickAudio.play();
+    containerJogoPedraPapelTesoura.style.display = "flex";
+    containerOpcoesMiniGames.style.display = "none";
+    iniciarJogoPedraPapelTesoura();
+});
+
+botaoVoltarPedraPapelTesoura.addEventListener("click", () => {
+    cutAudio.play();
+    containerJogoPedraPapelTesoura.style.display = "none";
+    containerOpcoesMiniGames.style.display = "grid";
+});
+
+botaoReiniciarPedraPapelTesoura.addEventListener("click", () => {
+    clickAudio.play();
+    iniciarJogoPedraPapelTesoura();
 });
 
 window.addEventListener("load", function () {
