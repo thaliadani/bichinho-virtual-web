@@ -562,7 +562,6 @@ input[type="range"]::-moz-focus-outer {
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
   gap: 10px;
-  margin: 20px auto;
 }
 
 #jogo-da-memoria-board .carta-memoria {
@@ -595,7 +594,6 @@ input[type="range"]::-moz-focus-outer {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
-  margin-top: 10px;
 }
 
 .mensagem {
