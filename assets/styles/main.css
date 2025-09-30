@@ -591,7 +591,7 @@ input[type="range"]::-moz-focus-outer {
   gap: 1rem;
 }
 
-.pedra-papel-tesoura-board .opcao {
+.pedra-papel-tesoura-board .opcao-ppt {
   background-color: var( --cor-fundo);
   color: var(--cor-texto);
   border: none;
@@ -607,11 +607,11 @@ input[type="range"]::-moz-focus-outer {
   box-shadow: 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
 
-.pedra-papel-tesoura-board .opcao:hover {
+.pedra-papel-tesoura-board .opcao-ppt:hover {
   background-color: var(--cor-botoes-hover);
 }
 
-.pedra-papel-tesoura-board .opcao:active {
+.pedra-papel-tesoura-board .opcao-ppt:active {
   box-shadow: inset 9px 10px 23px -4px rgba(0, 0, 0, 0.596);
 }
 
@@ -631,7 +631,6 @@ input[type="range"]::-moz-focus-outer {
 }
 
 @media screen and (max-width: 768px) {
-
   .container-principal {
     border: none;
     border-radius: 0;
